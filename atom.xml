@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>xfx&#39;s blog</title>
+  
+  <subtitle>xfx&#39;s blog</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://xfx98.github.io/"/>
+  <updated>2021-03-24T00:52:57.686Z</updated>
+  <id>http://xfx98.github.io/</id>
+  
+  <author>
+    <name>xfx</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>美团2021校招 技术综合-前端&amp;移动端方向 试卷</title>
+    <link href="http://xfx98.github.io/2020/09/06/mei-tuan-2021-xiao-zhao-ji-zhu-zong-he-qian-duan-yi-dong-duan-fang-xiang-shi-juan/"/>
+    <id>http://xfx98.github.io/2020/09/06/mei-tuan-2021-xiao-zhao-ji-zhu-zong-he-qian-duan-yi-dong-duan-fang-xiang-shi-juan/</id>
+    <published>2020-09-06T04:49:17.000Z</published>
+    <updated>2021-03-24T00:52:57.686Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;T1和T2很简单就不写了。&lt;br&gt;2020.9.6&lt;/p&gt;
+&lt;pre class=&quot; language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token comment&quot; spellcheck=&quot;true&quot;&gt;/**
+
+        
+      
+    
+    </summary>
+    
+      <category term="笔试" scheme="http://xfx98.github.io/categories/%E7%AC%94%E8%AF%95/"/>
+    
+    
+      <category term="Java" scheme="http://xfx98.github.io/tags/Java/"/>
+    
+      <category term="笔试" scheme="http://xfx98.github.io/tags/%E7%AC%94%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>百度2021校招Java研发工程师笔试 2020_9_3 T2&amp;T3编程题</title>
+    <link href="http://xfx98.github.io/2020/09/04/bai-du-2021-xiao-zhao-java-yan-fa-gong-cheng-shi-bi-shi-2020-9-3-t2-t3-bian-cheng-ti/"/>
+    <id>http://xfx98.github.io/2020/09/04/bai-du-2021-xiao-zhao-java-yan-fa-gong-cheng-shi-bi-shi-2020-9-3-t2-t3-bian-cheng-ti/</id>
+    <published>2020-09-04T08:45:21.000Z</published>
+    <updated>2021-03-24T00:52:57.685Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;又是拉胯的一天&lt;/p&gt;
+&lt;pre class=&quot; language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token comment&quot; spellcheck=&quot;true&quot;&gt;/**
+ * 第二题
+ * 给定n头奶牛，有
+        
+      
+    
+    </summary>
+    
+      <category term="笔试" scheme="http://xfx98.github.io/categories/%E7%AC%94%E8%AF%95/"/>
+    
+    
+      <category term="Java" scheme="http://xfx98.github.io/tags/Java/"/>
+    
+      <category term="差分区间" scheme="http://xfx98.github.io/tags/%E5%B7%AE%E5%88%86%E5%8C%BA%E9%97%B4/"/>
+    
+      <category term="dp" scheme="http://xfx98.github.io/tags/dp/"/>
+    
+      <category term="笔试" scheme="http://xfx98.github.io/tags/%E7%AC%94%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>拼多多2020.9.1笔试题 T2 and T4</title>
+    <link href="http://xfx98.github.io/2020/09/01/pin-duo-duo-2020.9.1-bi-shi-ti-t2-and-t4/"/>
+    <id>http://xfx98.github.io/2020/09/01/pin-duo-duo-2020.9.1-bi-shi-ti-t2-and-t4/</id>
+    <published>2020-09-01T13:43:17.000Z</published>
+    <updated>2021-03-24T00:52:57.681Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;T1简单没套路，T3 a不完。。所以只有T2和T4&lt;/p&gt;
+&lt;pre class=&quot; language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt;
+        
+      
+    
+    </summary>
+    
+      <category term="笔试" scheme="http://xfx98.github.io/categories/%E7%AC%94%E8%AF%95/"/>
+    
+    
+      <category term="Java" scheme="http://xfx98.github.io/tags/Java/"/>
+    
+      <category term="笔试" scheme="http://xfx98.github.io/tags/%E7%AC%94%E8%AF%95/"/>
+    
+      <category term="容斥原理" scheme="http://xfx98.github.io/tags/%E5%AE%B9%E6%96%A5%E5%8E%9F%E7%90%86/"/>
+    
+      <category term="BFS" scheme="http://xfx98.github.io/tags/BFS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>阿里Java实习生笔试题2020-03-27场</title>
+    <link href="http://xfx98.github.io/2020/03/28/a-li-java-shi-xi-sheng-bi-shi-ti-2020-03-27-chang/"/>
+    <id>http://xfx98.github.io/2020/03/28/a-li-java-shi-xi-sheng-bi-shi-ti-2020-03-27-chang/</id>
+    <published>2020-03-28T07:18:17.000Z</published>
+    <updated>2021-03-24T00:52:57.687Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;阿里的笔试题只有两个编程题，让我很意外。。。本以为会有计算机网络，数据库，操作系统等类的基础题。等笔试的时候发现就有两道编程题。&lt;/p&gt;
+&lt;p&gt;第一题是一个给定一个序列A与一个序列B，每次只能把序列A的一个字符移动到字符尾，问能否通过这种方式把序列A变为序列B，如果能变成，
+        
+      
+    
+    </summary>
+    
+      <category term="笔试" scheme="http://xfx98.github.io/categories/%E7%AC%94%E8%AF%95/"/>
+    
+    
+      <category term="Java" scheme="http://xfx98.github.io/tags/Java/"/>
+    
+      <category term="笔试" scheme="http://xfx98.github.io/tags/%E7%AC%94%E8%AF%95/"/>
+    
+      <category term="概率论" scheme="http://xfx98.github.io/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第十一届蓝桥杯校内赛_校内选拔赛（2020年）I题序列</title>
+    <link href="http://xfx98.github.io/2020/03/21/di-shi-yi-jie-lan-qiao-bei-xiao-nei-sai-xiao-nei-xuan-ba-sai-2020-nian-i-ti-xu-lie/"/>
+    <id>http://xfx98.github.io/2020/03/21/di-shi-yi-jie-lan-qiao-bei-xiao-nei-sai-xiao-nei-xuan-ba-sai-2020-nian-i-ti-xu-lie/</id>
+    <published>2020-03-21T12:52:27.000Z</published>
+    <updated>2021-03-24T00:52:57.686Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;序列&lt;/p&gt;
+&lt;h2 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h2&gt;&lt;p&gt;　　小明想知道，满足以下条件的正整数序列的数量：&lt;br&gt;　　1. 第一项为 n；&lt;br&gt;　　2.
+        
+      
+    
+    </summary>
+    
+      <category term="dp" scheme="http://xfx98.github.io/categories/dp/"/>
+    
+    
+      <category term="Java" scheme="http://xfx98.github.io/tags/Java/"/>
+    
+      <category term="dp" scheme="http://xfx98.github.io/tags/dp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Eclipse快捷键alt+_没有出现想要的补全，而是出现了其它建议，或者不出现补全窗口</title>
+    <link href="http://xfx98.github.io/2020/03/18/eclipse-kuai-jie-jian-alt-mei-you-chu-xian-xiang-yao-de-bu-quan-er-shi-chu-xian-liao-qi-ta-jian-yi-huo-zhe-bu-chu-xian-bu-quan-chuang-kou/"/>
+    <id>http://xfx98.github.io/2020/03/18/eclipse-kuai-jie-jian-alt-mei-you-chu-xian-xiang-yao-de-bu-quan-er-shi-chu-xian-liao-qi-ta-jian-yi-huo-zhe-bu-chu-xian-bu-quan-chuang-kou/</id>
+    <published>2020-03-18T07:03:27.000Z</published>
+    <updated>2021-03-24T00:59:37.310Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;这个是因为默认默认提示没有勾选到Java peoposals 这个选项，在路径Window-&amp;gt;preferences-&amp;gt;Java-&amp;gt;Editor-&amp;gt;content
+        
+      
+    
+    </summary>
+    
+      <category term="eclipse" scheme="http://xfx98.github.io/categories/eclipse/"/>
+    
+    
+      <category term="eclipse" scheme="http://xfx98.github.io/tags/eclipse/"/>
+    
+  </entry>
+  
+  <entry>
+    <title> 项目挣值分析法</title>
+    <link href="http://xfx98.github.io/2020/02/11/xiang-mu-zheng-zhi-fen-xi-fa/"/>
+    <id>http://xfx98.github.io/2020/02/11/xiang-mu-zheng-zhi-fen-xi-fa/</id>
+    <published>2020-02-11T07:20:24.000Z</published>
+    <updated>2021-03-24T00:52:57.688Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;项目挣值分析法又称为赢得值法或偏差分析法，挣得值分析法是在工程项目实施中使用较多的一种方法，是对项目进度和成本进行综合控制的一种有效方法。挣值分析法是采用统计学的方法，经常及时分析项目成本的状况，尽早地预测和发现项目成本差异与问题，努力在情况变坏之前采取纠偏
+        
+      
+    
+    </summary>
+    
+      <category term="项目管理" scheme="http://xfx98.github.io/categories/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/"/>
+    
+    
+      <category term="项目管理" scheme="http://xfx98.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Codeforces Round #609 (Div. 2) C. Long Beautiful Integer</title>
+    <link href="http://xfx98.github.io/2019/12/22/codeforces-round-609-div.2-c.long-beautiful-integer/"/>
+    <id>http://xfx98.github.io/2019/12/22/codeforces-round-609-div.2-c.long-beautiful-integer/</id>
+    <published>2019-12-22T08:06:29.000Z</published>
+    <updated>2021-03-24T00:52:57.672Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="大数" scheme="http://xfx98.github.io/categories/%E5%A4%A7%E6%95%B0/"/>
+    
+    
+      <category term="Java" scheme="http://xfx98.github.io/tags/Java/"/>
+    
+      <category term="大数" scheme="http://xfx98.github.io/tags/%E5%A4%A7%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Codeforces Round #609 (Div. 2) B. Modulo Equality</title>
+    <link href="http://xfx98.github.io/2019/12/22/codeforces-round-609-div.2-b.modulo-equality/"/>
+    <id>http://xfx98.github.io/2019/12/22/codeforces-round-609-div.2-b.modulo-equality/</id>
+    <published>2019-12-22T07:50:24.000Z</published>
+    <updated>2021-03-24T00:52:57.672Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="暴力" scheme="http://xfx98.github.io/categories/%E6%9A%B4%E5%8A%9B/"/>
+    
+    
+      <category term="Java" scheme="http://xfx98.github.io/tags/Java/"/>
+    
+      <category term="暴力" scheme="http://xfx98.github.io/tags/%E6%9A%B4%E5%8A%9B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Codeforces Round #609 (Div. 2) D. Domino for Young</title>
+    <link href="http://xfx98.github.io/2019/12/22/codeforces-round-609-div.2-d.domino-for-young/"/>
+    <id>http://xfx98.github.io/2019/12/22/codeforces-round-609-div.2-d.domino-for-young/</id>
+    <published>2019-12-22T07:12:24.000Z</published>
+    <updated>2021-03-24T00:52:57.673Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="栈" scheme="http://xfx98.github.io/categories/%E6%A0%88/"/>
+    
+    
+      <category term="Java" scheme="http://xfx98.github.io/tags/Java/"/>
+    
+      <category term="栈" scheme="http://xfx98.github.io/tags/%E6%A0%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux 与win双系统时间不统一的解决方法</title>
+    <link href="http://xfx98.github.io/2019/12/12/linux-yu-win-shuang-xi-tong-shi-jian-bu-tong-yi-de-jie-jue-fang-fa/"/>
+    <id>http://xfx98.github.io/2019/12/12/linux-yu-win-shuang-xi-tong-shi-jian-bu-tong-yi-de-jie-jue-fang-fa/</id>
+    <published>2019-12-12T10:15:07.000Z</published>
+    <updated>2021-03-24T00:52:57.674Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;这个问题的原因是：Win和 Linux 对硬件时间的处理方法不同，一个将硬件时间作为本地时间，而另一个则处理为UTC时间。因此在中国UTC+8时区的情况下使用 Windows 和 Linux
+        
+      
+    
+    </summary>
+    
+      <category term="linux" scheme="http://xfx98.github.io/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="http://xfx98.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>winRAR去广告</title>
+    <link href="http://xfx98.github.io/2019/11/25/winrar-qu-guang-gao/"/>
+    <id>http://xfx98.github.io/2019/11/25/winrar-qu-guang-gao/</id>
+    <published>2019-11-25T14:15:07.000Z</published>
+    <updated>2021-03-24T01:03:38.597Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;使用Resource Hacker进行WinRAR的去广告操作&lt;br&gt;&lt;a href=&quot;http://www.angusj.com/resourcehacker/&quot;&gt;软件下载地址&lt;/a&gt;&lt;br&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="破解" scheme="http://xfx98.github.io/categories/%E7%A0%B4%E8%A7%A3/"/>
+    
+    
+      <category term="WinRAR" scheme="http://xfx98.github.io/tags/WinRAR/"/>
+    
+      <category term="破解" scheme="http://xfx98.github.io/tags/%E7%A0%B4%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu安装图形界面、远程访问、配置域名</title>
+    <link href="http://xfx98.github.io/2019/11/07/ubuntu-an-zhuang-tu-xing-jie-mian-yuan-cheng-fang-wen-pei-zhi-yu-ming/"/>
+    <id>http://xfx98.github.io/2019/11/07/ubuntu-an-zhuang-tu-xing-jie-mian-yuan-cheng-fang-wen-pei-zhi-yu-ming/</id>
+    <published>2019-11-07T13:44:09.000Z</published>
+    <updated>2021-03-24T01:03:38.564Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt; 最近在华为云申请了服务器玩玩，因为linux的命令不算太熟悉，所以就想搞一下图形界面试试水。。。（主要因为win系统占用空间有点大，所有就投身到linux的怀抱，反正也能随便改系统，也不用花费毛爷爷）&lt;/p&gt;
+&lt;h2 id=&quot;1、安装Ubuntu图形界面&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="linux" scheme="http://xfx98.github.io/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="http://xfx98.github.io/tags/linux/"/>
+    
+      <category term="图形界面" scheme="http://xfx98.github.io/tags/%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/"/>
+    
+      <category term="配置域名" scheme="http://xfx98.github.io/tags/%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D/"/>
+    
+      <category term="远程访问" scheme="http://xfx98.github.io/tags/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pip更新至19.3.1出现TypeError_ module object is not callable</title>
+    <link href="http://xfx98.github.io/2019/10/27/pip-geng-xin-zhi-19.3.1-chu-xian-typeerror-module-object-is-not-callable/"/>
+    <id>http://xfx98.github.io/2019/10/27/pip-geng-xin-zhi-19.3.1-chu-xian-typeerror-module-object-is-not-callable/</id>
+    <published>2019-10-27T01:38:07.000Z</published>
+    <updated>2021-03-24T00:52:57.678Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;错误信息&lt;/p&gt;
+&lt;pre class=&quot; language-powershell&quot;&gt;&lt;code class=&quot;language-powershell&quot;&gt;Traceback &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;most
+        
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="http://xfx98.github.io/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="http://xfx98.github.io/tags/Python/"/>
+    
+      <category term="pip" scheme="http://xfx98.github.io/tags/pip/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux下搜狗拼音出现候选词乱码问题</title>
+    <link href="http://xfx98.github.io/2019/09/24/linux-xia-sou-gou-pin-yin-chu-xian-hou-xuan-ci-luan-ma-wen-ti/"/>
+    <id>http://xfx98.github.io/2019/09/24/linux-xia-sou-gou-pin-yin-chu-xian-hou-xuan-ci-luan-ma-wen-ti/</id>
+    <published>2019-09-24T12:50:07.000Z</published>
+    <updated>2021-03-24T00:52:57.677Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;搜狗输入法自我感觉非常好用，但是总是会在开机的时候随机出现乱码，目前找到两个解决该问题的方法。&lt;/p&gt;
+&lt;h2 id=&quot;1、删除搜狗拼音的配置文件，然后重新登录&quot;&gt;&lt;a href=&quot;#1、删除搜狗拼音的配置文件，然后重新登录&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="linux" scheme="http://xfx98.github.io/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="http://xfx98.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Codeforces Round #576 (Div. 1)  E. Rectangle Painting 2</title>
+    <link href="http://xfx98.github.io/2019/09/07/codeforces-round-576-div.1-e.rectangle-painting-2/"/>
+    <id>http://xfx98.github.io/2019/09/07/codeforces-round-576-div.1-e.rectangle-painting-2/</id>
+    <published>2019-09-07T13:49:12.000Z</published>
+    <updated>2021-03-24T00:52:57.671Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Rectangle-Painting-2&quot;&gt;&lt;a href=&quot;#Rectangle-Painting-2&quot; class=&quot;headerlink&quot; title=&quot;Rectangle Painting 2&quot;&gt;&lt;/a&gt;Rectangle Painting
+        
+      
+    
+    </summary>
+    
+      <category term="网络流" scheme="http://xfx98.github.io/categories/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
+    
+    
+      <category term="Java" scheme="http://xfx98.github.io/tags/Java/"/>
+    
+      <category term="网络流" scheme="http://xfx98.github.io/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
+    
+      <category term="二分图匹配" scheme="http://xfx98.github.io/tags/%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>The Preliminary Contest for ICPC Asia Nanjing 2019 B_super_log</title>
+    <link href="http://xfx98.github.io/2019/09/04/the-preliminary-contest-for-icpc-asia-nanjing-2019-b-super-log/"/>
+    <id>http://xfx98.github.io/2019/09/04/the-preliminary-contest-for-icpc-asia-nanjing-2019-b-super-log/</id>
+    <published>2019-09-04T12:31:18.000Z</published>
+    <updated>2021-03-24T00:52:57.675Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;super-log&quot;&gt;&lt;a href=&quot;#super-log&quot; class=&quot;headerlink&quot; title=&quot;super_log&quot;&gt;&lt;/a&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="欧拉降幂" scheme="http://xfx98.github.io/categories/%E6%AC%A7%E6%8B%89%E9%99%8D%E5%B9%82/"/>
+    
+    
+      <category term="Java" scheme="http://xfx98.github.io/tags/Java/"/>
+    
+      <category term="欧拉降幂" scheme="http://xfx98.github.io/tags/%E6%AC%A7%E6%8B%89%E9%99%8D%E5%B9%82/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Codeforces Round #576 (Div. 1) D. Rectangle Painting 1</title>
+    <link href="http://xfx98.github.io/2019/08/31/codeforces-round-576-div.1-d.rectangle-painting-1/"/>
+    <id>http://xfx98.github.io/2019/08/31/codeforces-round-576-div.1-d.rectangle-painting-1/</id>
+    <published>2019-08-31T05:21:27.000Z</published>
+    <updated>2021-03-24T00:52:57.672Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;D-Rectangle-Painting-1&quot;&gt;&lt;a href=&quot;#D-Rectangle-Painting-1&quot; class=&quot;headerlink&quot; title=&quot;D. Rectangle Painting 1&quot;&gt;&lt;/a&gt;D. Rectangle
+        
+      
+    
+    </summary>
+    
+      <category term="dp" scheme="http://xfx98.github.io/categories/dp/"/>
+    
+    
+      <category term="Java" scheme="http://xfx98.github.io/tags/Java/"/>
+    
+      <category term="dp" scheme="http://xfx98.github.io/tags/dp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Educational Codeforces Round 68 D.1-2-K Game</title>
+    <link href="http://xfx98.github.io/2019/07/15/educational-codeforces-round-68-d.1-2-k-game/"/>
+    <id>http://xfx98.github.io/2019/07/15/educational-codeforces-round-68-d.1-2-k-game/</id>
+    <published>2019-07-14T17:08:27.000Z</published>
+    <updated>2021-03-24T00:52:57.674Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;D-1-2-K-Game&quot;&gt;&lt;a href=&quot;#D-1-2-K-Game&quot; class=&quot;headerlink&quot; title=&quot;D. 1-2-K Game&quot;&gt;&lt;/a&gt;D. 1-2-K Game&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;time limit per
+        
+      
+    
+    </summary>
+    
+      <category term="博弈" scheme="http://xfx98.github.io/categories/%E5%8D%9A%E5%BC%88/"/>
+    
+    
+      <category term="Java" scheme="http://xfx98.github.io/tags/Java/"/>
+    
+      <category term="博弈" scheme="http://xfx98.github.io/tags/%E5%8D%9A%E5%BC%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Codeforces Round #573 Tokitsukaze, CSL and Stone Game</title>
+    <link href="http://xfx98.github.io/2019/07/13/codeforces-round-573-tokitsukaze-csl-and-stone-game/"/>
+    <id>http://xfx98.github.io/2019/07/13/codeforces-round-573-tokitsukaze-csl-and-stone-game/</id>
+    <published>2019-07-13T06:34:27.000Z</published>
+    <updated>2021-03-24T00:52:57.671Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;B-Tokitsukaze-CSL-and-Stone-Game&quot;&gt;&lt;a href=&quot;#B-Tokitsukaze-CSL-and-Stone-Game&quot; class=&quot;headerlink&quot; title=&quot;B. Tokitsukaze, CSL and
+        
+      
+    
+    </summary>
+    
+      <category term="博弈" scheme="http://xfx98.github.io/categories/%E5%8D%9A%E5%BC%88/"/>
+    
+    
+      <category term="Java" scheme="http://xfx98.github.io/tags/Java/"/>
+    
+      <category term="博弈" scheme="http://xfx98.github.io/tags/%E5%8D%9A%E5%BC%88/"/>
+    
+  </entry>
+  
+</feed>
