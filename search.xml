@@ -4,6 +4,141 @@
   
     
     <entry>
+      <title>管理nodejs版本</title>
+      <link href="/2021/03/24/guan-li-nodejs-ban-ben/"/>
+      <url>/2021/03/24/guan-li-nodejs-ban-ben/</url>
+      
+        <content type="html"><![CDATA[<h3 id="安装下载-nvm-node版本管理工具"><a href="#安装下载-nvm-node版本管理工具" class="headerlink" title="安装下载 nvm node版本管理工具"></a>安装下载 <a href="https://github.com/coreybutler/nvm-windows/releases">nvm node版本管理工具</a></h3><p>执行命令安装指定版本，进行版本管理</p><pre class=" language-bash"><code class="language-bash">nvm <span class="token function">install</span> 14.16.0 <span class="token comment" spellcheck="true">#安装14.16.0</span></code></pre><pre class=" language-bash"><code class="language-bash">nvm list <span class="token comment" spellcheck="true">#查看安装所有版本</span>nvm list available <span class="token comment" spellcheck="true">#查看可安装的版本</span>nvm use 14.16.0 <span class="token comment" spellcheck="true">#使用指定版本</span></code></pre><h3 id="安装n模块"><a href="#安装n模块" class="headerlink" title="安装n模块"></a>安装n模块</h3><p>1、首先安装n模块：</p><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g n</code></pre><p>2、安装好n模块后可以选择下面其一升级：</p><p>选择一：升级node.js到最新稳定版</p><pre class=" language-bash"><code class="language-bash">n stable</code></pre><p>选择二：升级node.js到最新版</p><pre class=" language-bash"><code class="language-bash">n latest</code></pre><p>选择三：升级node.js到制定版本</p><pre class=" language-bash"><code class="language-bash">n v14.16.0</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> IDE </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> nodejs </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>MySQL事务锁命令语句集合</title>
+      <link href="/2021/03/21/mysql-shi-wu-suo-ming-ling-yu-ju-ji-he/"/>
+      <url>/2021/03/21/mysql-shi-wu-suo-ming-ling-yu-ju-ji-he/</url>
+      
+        <content type="html"><![CDATA[<p>查看数据库innodb状态<br><code>show engine innodb status</code></p><p>查看当前是否有事务运行<br><code>select * from information_schema.INNODB_TRX;</code></p><p>通过kill结束当前事务<br><code>kill &#39;trx_mysql_thread_id&#39;</code></p><p>查看当前线程处理情况，如果不使用full关键字，信息字段中只会显示每个语句的前100个字符。<br><code>show processlist;</code><br><code>show full processlist;</code></p><p>查询表级锁争用情况 Table_locks_immediate  指的是能够立即获得表级锁的次数  Table_locks_waited  指的是不能立即获取表级锁而需要等待的次数<br><code>show status like &#39;Table%&#39;;</code></p><p>查看行锁使用情况<br><code>show statue like &#39;innodb_row_lock%&#39;;</code></p><p>获取锁定次数、锁定造成其他线程等待次数，以及锁定等待时间信息<br><code>show status like &#39;%lock%&#39;;</code></p><p>innodb的dml操作的行级锁的等待时间<br><code>SHOW VARIABLES LIKE &#39;innodb_lock_wait_timeout&#39;;</code></p><p>查看timeout相关参数<br><code>show variables like &#39;%timeout%&#39;;</code></p><p>查看正在被锁定的的表<br><code>SHOW OPEN TABLES where In_use &gt; 0;</code></p><p>查看被锁住的<br><code>SELECT * FROM INFORMATION_SCHEMA.INNODB_LOCKS;</code></p><p>等待锁定<br><code>SELECT * FROM INFORMATION_SCHEMA.INNODB_LOCK_WAITS;</code></p><p>查看表索引信息<br><code>SHOW INDEX FROM account;</code></p><p>查看当前的隔离级别:<br><code>SELECT @@tx_isolation;</code></p><p>设置当前 mySQL 连接的隔离级别:<br>会话级：只对当前的会话效<br><code>set  transaction isolation level repeatable read;</code></p><p>设置数据库系统的全局的隔离级别:<br>全局级：对所的会话效<br> <code>set global transaction isolation level repeatable read;</code></p><p>自动提交模式可以通过服务器变量AUTOCOMMIT来控制。<br><code>show variables like &#39;%auto%&#39;;</code><br><code>show variables like &#39;%autocommit%&#39;;</code></p><p>通过查询<code>information_schema</code>数据库事务表的信息<br><code>select * from information_schema.INNODB_TRX;</code><br>下面对 <code>innodb_trx</code> 表的每个字段进行解释：</p><pre><code>trx_id：事务ID。trx_state：事务状态，有以下几种状态：RUNNING、LOCK WAIT、ROLLING BACK 和 COMMITTING。trx_started：事务开始时间。trx_requested_lock_id：事务当前正在等待锁的标识，可以和 INNODB_LOCKS 表 JOIN 以得到更多详细信息。trx_wait_started：事务开始等待的时间。trx_weight：事务的权重。trx_mysql_thread_id：事务线程 ID，可以和 PROCESSLIST 表 JOIN。trx_query：事务正在执行的 SQL 语句。trx_operation_state：事务当前操作状态。trx_tables_in_use：当前事务执行的 SQL 中使用的表的个数。trx_tables_locked：当前执行 SQL 的行锁数量。trx_lock_structs：事务保留的锁数量。trx_lock_memory_bytes：事务锁住的内存大小，单位为 BYTES。trx_rows_locked：事务锁住的记录数。包含标记为 DELETED，并且已经保存到磁盘但对事务不可见的行。trx_rows_modified：事务更改的行数。trx_concurrency_tickets：事务并发票数。trx_isolation_level：当前事务的隔离级别。trx_unique_checks：是否打开唯一性检查的标识。trx_foreign_key_checks：是否打开外键检查的标识。trx_last_foreign_key_error：最后一次的外键错误信息。trx_adaptive_hash_latched：自适应散列索引是否被当前事务锁住的标识。trx_adaptive_hash_timeout：是否立刻放弃为自适应散列索引搜索 LATCH 的标识。</code></pre><p>下面对 <code>innodb_locks</code> 表的每个字段进行解释：</p><pre><code>lock_id：锁 ID。lock_trx_id：拥有锁的事务 ID。可以和 INNODB_TRX 表 JOIN 得到事务的详细信息。lock_mode：锁的模式。有如下锁类型：行级锁包括：S、X、IS、IX，分别代表：共享锁、排它锁、意向共享锁、意向排它锁。表级锁包括：S_GAP、X_GAP、IS_GAP、IX_GAP 和 AUTO_INC，分别代表共享间隙锁、排它间隙锁、意向共享间隙锁、意向排它间隙锁和自动递增锁。lock_type：锁的类型。RECORD 代表行级锁，TABLE 代表表级锁。lock_table：被锁定的或者包含锁定记录的表的名称。lock_index：当 LOCK_TYPE=’RECORD’ 时，表示索引的名称；否则为 NULL。lock_space：当 LOCK_TYPE=’RECORD’ 时，表示锁定行的表空间 ID；否则为 NULL。lock_page：当 LOCK_TYPE=’RECORD’ 时，表示锁定行的页号；否则为 NULL。lock_rec：当 LOCK_TYPE=’RECORD’ 时，表示一堆页面中锁定行的数量，亦即被锁定的记录号；否则为 NULL。lock_data：当 LOCK_TYPE=’RECORD’ 时，表示锁定行的主键；否则为NULL。</code></pre><p>下面对 <code>innodb_lock_waits</code> 表的每个字段进行解释：</p><pre><code>requesting_trx_id：请求事务的 ID。requested_lock_id：事务所等待的锁定的 ID。可以和 INNODB_LOCKS 表 JOIN。blocking_trx_id：阻塞事务的 ID。blocking_lock_id：某一事务的锁的 ID，该事务阻塞了另一事务的运行。可以和 INNODB_LOCKS 表 JOIN。</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> MySql </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MySql </tag>
+            
+            <tag> 事务 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Linux安装MySQL</title>
+      <link href="/2021/03/01/linux-an-zhuang-mysql/"/>
+      <url>/2021/03/01/linux-an-zhuang-mysql/</url>
+      
+        <content type="html"><![CDATA[<h2 id="下载RPM"><a href="#下载RPM" class="headerlink" title="下载RPM"></a>下载RPM</h2><p>可以前往MySQL官网进行下载，本次安装使用mysql57-community-release-el7-8.noarch.rpm。</p><pre class=" language-bash"><code class="language-bash"><span class="token function">wget</span> http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm</code></pre><p>下载完成后将Yum库导入到服务器。</p><pre class=" language-bash"><code class="language-bash">yum localinstall mysql57-community-release-el7-8.noarch.rpm</code></pre><p>检查是否安装成功。</p><pre class=" language-bash"><code class="language-bash">yum repolist enabled <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">"mysql.*-community.*"</span></code></pre><h2 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h2><p>通过第一步的操作我们当前的Yum库中已经包含了MySQLServer、MySQL工作台管理工具以及ODBC驱动，现在我们就可以通过下面的命令简单的安装MySQL了。</p><pre class=" language-bash"><code class="language-bash">yum <span class="token function">install</span> mysql-community-server</code></pre><p>若出现</p><pre><code>所有匹配已被模块的排除过滤过滤掉。: mysql-community-server错误：没有任何匹配: mysql-community-server</code></pre><p>执行</p><pre class=" language-bash"><code class="language-bash">yum module disable mysqlyum <span class="token function">install</span> mysql-community-server</code></pre><p>安装过程中会提示选择项，请选择y。</p><h2 id="启动MySQL"><a href="#启动MySQL" class="headerlink" title="启动MySQL"></a>启动MySQL</h2><p>执行下面的命令来启动MySQL服务。</p><pre class=" language-bash"><code class="language-bash">systemctl start mysqld</code></pre><p>查看MySQL的启动状态。</p><pre class=" language-bash"><code class="language-bash">systemctl status mysqld</code></pre><h3 id="设置开机启动"><a href="#设置开机启动" class="headerlink" title="设置开机启动"></a>设置开机启动</h3><p>执行下面的命令来配置MySQL开机启动。</p><pre class=" language-bash"><code class="language-bash">systemctl <span class="token function">enable</span> mysqldsystemctl daemon-reload</code></pre><h3 id="修改MySQL-root账号密码"><a href="#修改MySQL-root账号密码" class="headerlink" title="修改MySQL root账号密码"></a>修改MySQL root账号密码</h3><p>由于MySQL安装完成之后会在/var/log/mysqld.log文件中给root生成了一个默认密码，因此我们可以通过下面的方式找到root的默认密码，然后登陆MySQL进行修改。</p><pre class=" language-bash"><code class="language-bash"><span class="token function">grep</span> <span class="token string">'temporary password'</span> /var/log/mysqld.log</code></pre><p>使用上一步获取到的root默认密码来登陆MySQL。</p><pre class=" language-bash"><code class="language-bash">mysql -u root -p</code></pre><p>修改root账号密码</p><pre class=" language-sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">USER</span> <span class="token string">'root'</span>@'localhost<span class="token string">' IDENTIFIED BY '</span>xxxxx'<span class="token punctuation">;</span></code></pre><p>密码强度问题：设置密码时密码强度可能不够，所有可以通过设置全局参数改变<br>首先查看密码验证相关变量</p><pre class=" language-sql"><code class="language-sql"><span class="token keyword">show</span> variables <span class="token operator">like</span> <span class="token string">'validate_password%'</span><span class="token punctuation">;</span></code></pre><p>验证策略是MEDIUM,就是长度，数字，大小写，特殊字符都得验证，因此出现如此所示的错误，就很正常了。我们可以修改validate_password_policy=0</p><pre class=" language-sql"><code class="language-sql"><span class="token keyword">set</span> <span class="token keyword">global</span> validate_password_policy<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span></code></pre><p>设置密码验证长度</p><pre class=" language-sql"><code class="language-sql"><span class="token keyword">set</span> <span class="token keyword">global</span> validate_password_length<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">;</span></code></pre><p>1、修改密码的四种方式</p><p>a)shell命令行下 <code>mysqladmin -uroot -poldpassword password newpassword</code><br>b)sql命令行下 <code>set password = password(newpassword);</code><br>c)sql命令行下 <code>update user set authentication_string=password(newpassword) where user=&#39;root&#39;;</code><br>d)sql命令行下 <code>alter user root@&#39;localhost&#39; identified by &#39;newpassword&#39;;</code>//使用随机密码登录，如果要使用数据，查看数据库等操作时mysql会推荐这种写法改变密码。<br>2、密码策略的三个值分别代表的含义</p><p>a)LOW(0)只检查长度。</p><p>b)MEDIUM(1)检查长度，数字，大小写，特殊字符。</p><p>c)STRONG(2)检查长度，数字，大小写，特殊字符字典文件。</p><h3 id="设置远程访问"><a href="#设置远程访问" class="headerlink" title="设置远程访问"></a>设置远程访问</h3><p>远程登录的时候需要设置权限，允许所有IP访问</p><pre class=" language-sql"><code class="language-sql"><span class="token keyword">use</span> mysql<span class="token punctuation">;</span><span class="token keyword">update</span> <span class="token keyword">user</span> <span class="token keyword">set</span> host <span class="token operator">=</span> <span class="token string">'%'</span> <span class="token keyword">where</span> <span class="token keyword">user</span> <span class="token operator">=</span> <span class="token string">'root'</span><span class="token punctuation">;</span>FLUSH <span class="token keyword">PRIVILEGES</span><span class="token punctuation">;</span></code></pre><p>或创建可远程访问的用户</p><pre class=" language-sql"><code class="language-sql"><span class="token keyword">GRANT</span> <span class="token keyword">ALL</span> <span class="token keyword">PRIVILEGES</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> <span class="token string">'admin'</span>@'<span class="token operator">%</span><span class="token string">' IDENTIFIED BY '</span>admin' <span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span><span class="token punctuation">;</span></code></pre><p>另外就是防火墙问题，可以先关闭防火墙，列出的两个命令可以选择使用其中一个即可，也可配置开放端口<br>1:查看防火状态</p><pre class=" language-bash"><code class="language-bash">systemctl status firewalld<span class="token function">service</span> iptables status</code></pre><p>2:暂时关闭防火墙</p><pre class=" language-bash"><code class="language-bash">systemctl stop firewalld<span class="token function">service</span>  iptables stop</code></pre><p>3:永久关闭防火墙</p><pre class=" language-bash"><code class="language-bash">systemctl disable firewalld<span class="token function">chkconfig</span> iptables off</code></pre><p>4:重启防火墙</p><pre class=" language-bash"><code class="language-bash">systemctl <span class="token function">enable</span> firewalld<span class="token function">service</span> iptables restart  </code></pre><h4 id="配置开放端口"><a href="#配置开放端口" class="headerlink" title="配置开放端口"></a>配置开放端口</h4><p>查看防火墙已开放端口列表</p><pre class=" language-bash"><code class="language-bash">firewall-cmd --list-all</code></pre><p>防火墙添加端口</p><pre class=" language-bash"><code class="language-bash">firewall-cmd --permanent --add-port<span class="token operator">=</span>3306/tcpfirewall-cmd --reload</code></pre><p>防火墙关闭端口</p><pre class=" language-bash"><code class="language-bash">firewall-cmd --permanent --remove-port 3306/tcpfirewall-cmd --reload</code></pre><p>出现连接数太多报错时</p><blockquote><p>Data source rejected establishment of connection,  message from server: “Too many connections”</p></blockquote><p>可通过执行SQL语句设置最大连接数，此方法重启失效</p><pre class=" language-sql"><code class="language-sql"><span class="token keyword">show</span> variables <span class="token operator">like</span> <span class="token string">"max_connections"</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">-- 显示最大连接数</span><span class="token keyword">show</span> processlist <span class="token punctuation">;</span> <span class="token comment" spellcheck="true">--显示当前连接数</span><span class="token keyword">set</span> <span class="token keyword">global</span> max_connections<span class="token operator">=</span><span class="token number">1000</span> <span class="token comment" spellcheck="true">--设置最大连接数1000</span></code></pre><p>也可修改my.cnf配置文件<br>在<code>[mysqld]</code>下面添加<code>max_connections=1000</code><br>执行：<code>service mysql restart</code> 重新启动MySQL服务<br>win系统是my.ini的属性<code>max_connections</code><br>该文件可能存在与安装目录或者<code>ProgramData</code>的MySQL目录下，我的是在<code>ProgramData</code>下的</p><h3 id="MySQL常用默认文件路径"><a href="#MySQL常用默认文件路径" class="headerlink" title="MySQL常用默认文件路径"></a>MySQL常用默认文件路径</h3><p>下面提供一下linux的MySQL的一些常用的默认文件路径。</p><p>配置文件：<code>/etc/my.cnf</code><br>日志文件：<code>/var/log//var/log/mysqld.log</code><br>服务启动脚本：<code>/usr/lib/systemd/system/mysqld.service</code><br>socket文件：<code>/var/run/mysqld/mysqld.pid</code></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> IDE </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> MySQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Minio文件服务安装（Linux和window）</title>
+      <link href="/2021/02/21/minio-wen-jian-fu-wu-an-zhuang-linux-he-window/"/>
+      <url>/2021/02/21/minio-wen-jian-fu-wu-an-zhuang-linux-he-window/</url>
+      
+        <content type="html"><![CDATA[<p>项目地址<a href="https://github.com/minio/minio">https://github.com/minio/minio</a></p><h2 id="Linux安装"><a href="#Linux安装" class="headerlink" title="Linux安装"></a>Linux安装</h2><p>下载安装介质</p><pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> /usr/local<span class="token function">wget</span> https://dl.minio.io/server/minio/release/linux-amd64/minio</code></pre><p>安装（下文中ip指代的是Minio所在的服务器地址）</p><pre class=" language-bash"><code class="language-bash"><span class="token function">chmod</span> +x minio<span class="token function">export</span> MINIO_ACCESS_KEY<span class="token operator">=</span>minioadmin<span class="token function">export</span> MINIO_SECRET_KEY<span class="token operator">=</span>minioadmin./minio server /minio/data</code></pre><blockquote><p>Endpoint: <a href="http://ip:9000">http://ip:9000</a> <a href="http://127.0.0.1:9000">http://127.0.0.1:9000</a><br>AccessKey: minioadmin<br>SecretKey: minioadmin<br>Browser Access: <a href="http://ip:9000">http://ip:9000</a></p></blockquote><p>开机自启动</p><p>编写脚本 minioSysInit.sh，脚本内容如下。</p><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># !/bin/bash</span>/usr/local/minio server /minio/data</code></pre><p>更改文件权限。</p><pre class=" language-bash"><code class="language-bash">  <span class="token function">chmod</span> +x /usr/local/minioSysInit.sh</code></pre><p>编辑 rc.local文件，加入脚本。</p><pre class=" language-bash"><code class="language-bash">  vim /etc/rc.d/rc.local  /usr/local/minioSysInit.sh</code></pre><p>更新rc.local权限</p><pre class=" language-bash"><code class="language-bash">  <span class="token function">chmod</span> +x /etc/rc.d/rc.local</code></pre><p>  接口开放相关查看<a href="https://blog.csdn.net/qq_40827780/article/details/114258020?spm=1001.2014.3001.5501">MySQL安装的开放远程端口，关闭防火墙部分</a></p><h2 id="Windows安装"><a href="#Windows安装" class="headerlink" title="Windows安装"></a>Windows安装</h2><p><a href="https://dl.min.io/server/minio/release/windows-amd64/minio.exe">https://dl.min.io/server/minio/release/windows-amd64/minio.exe</a><br>下载就可使用下面命令前台使用，要在后台运行，就要配置成服务进行使用</p><pre class=" language-sh"><code class="language-sh">./minio server ./data</code></pre><p>需要用到<code>winsw</code><br>下载：</p><p><a href="https://github.com/winsw/winsw/releases">https://github.com/winsw/winsw/releases</a><br>将下载的<code>WinSW.NET***.exe</code>复制到自定义的目录，并重命名为自己想命名的服务名称<code>minio-server.exe</code><br>同目录下创建<code>minio-server.xml</code>。特别注意，<code>xml</code>和<code>exe</code>必须同名<br>配置<code>minio-server.xml</code>文件<br>使用<code>./minio-server.exe install</code>安装服务<br>安装完后，去服务中启动服务。启动成功就可以正常使用<code>minio</code>啦<br>使用<code>./minio-server.exe uninstall</code>卸载服务<br>当然此操作也适用于其它<code>exe</code>程序只需更改配置即可<br>配置</p><pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>service</span><span class="token punctuation">></span></span>    <span class="token comment" spellcheck="true">&lt;!-- 服务名字 --></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span><span class="token punctuation">></span></span>minio-server<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>id</span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>minio-server<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>description</span><span class="token punctuation">></span></span>minio文件存储服务器<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>description</span><span class="token punctuation">></span></span>    <span class="token comment" spellcheck="true">&lt;!-- 可设置环境变量 --></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>env</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>HOME<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>%BASE%<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>executable</span><span class="token punctuation">></span></span>%BASE%\minio.exe<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>executable</span><span class="token punctuation">></span></span>    <span class="token comment" spellcheck="true">&lt;!-- 文件储存地址 --></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>arguments</span><span class="token punctuation">></span></span>server "%BASE%\data"<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>arguments</span><span class="token punctuation">></span></span>    <span class="token comment" spellcheck="true">&lt;!-- &lt;logmode>rotate&lt;/logmode> --></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>logpath</span><span class="token punctuation">></span></span>%BASE%\logs<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>logpath</span><span class="token punctuation">></span></span>    <span class="token comment" spellcheck="true">&lt;!-- 日志配置 --></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>log</span> <span class="token attr-name">mode</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>roll-by-size-time<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sizeThreshold</span><span class="token punctuation">></span></span>10240<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sizeThreshold</span><span class="token punctuation">></span></span>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pattern</span><span class="token punctuation">></span></span>yyyyMMdd<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pattern</span><span class="token punctuation">></span></span>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>autoRollAtTime</span><span class="token punctuation">></span></span>00:00:00<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>autoRollAtTime</span><span class="token punctuation">></span></span>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>zipOlderThanNumDays</span><span class="token punctuation">></span></span>5<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>zipOlderThanNumDays</span><span class="token punctuation">></span></span>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>zipDateFormat</span><span class="token punctuation">></span></span>yyyyMMdd<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>zipDateFormat</span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>log</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>service</span><span class="token punctuation">></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> IDE </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> Minio </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>MySQL之集合之间的查询</title>
+      <link href="/2021/01/27/mysql-zhi-ji-he-zhi-jian-de-cha-xun/"/>
+      <url>/2021/01/27/mysql-zhi-ji-he-zhi-jian-de-cha-xun/</url>
+      
+        <content type="html"><![CDATA[<p><strong>此为Spring Mapping层的策略</strong><br>根据需求有以下查询情况：</p><ol><li>判断一个元素是否在集合里面。<br>可用 IN 判断，要求传入参数为集合，然后通过</li></ol><pre class=" language-xml"><code class="language-xml"> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>foreach</span> <span class="token attr-name">collection</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>List<span class="token punctuation">"</span></span> <span class="token attr-name">item</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>i<span class="token punctuation">"</span></span> <span class="token attr-name">index</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>index<span class="token punctuation">"</span></span> <span class="token attr-name">open</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>(<span class="token punctuation">"</span></span> <span class="token attr-name">close</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>)<span class="token punctuation">"</span></span> <span class="token attr-name">separator</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>,<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>foreach</span><span class="token punctuation">></span></span></code></pre><p>对集合进行整理。<br>另一个方法是使用 FIND_IN_SET 函数，这个要求传入参数为以逗号分隔的字符串。<br>如 FIND_IN_SET(em,emlist) , FIND_IN_SET(‘1’,’1,2,3’ ) 会回传元素所在索引。不存在返回0。</p><ol start="2"><li>判断一个集合里面是否有另一个集合的元素。<br>使用策略也可以传列表操作，使用上面foreach进行操作每一个元素是否在另一个。<br>另外就是使用正则 <pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> concat<span class="token punctuation">(</span><span class="token string">'1,4'</span><span class="token punctuation">,</span> <span class="token string">','</span><span class="token punctuation">)</span> <span class="token operator">regexp</span> concat<span class="token punctuation">(</span>replace<span class="token punctuation">(</span><span class="token string">'1,2,3'</span><span class="token punctuation">,</span><span class="token string">','</span><span class="token punctuation">,</span><span class="token string">',|'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">','</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">-- 1</span><span class="token keyword">select</span> concat<span class="token punctuation">(</span><span class="token string">'5,4'</span><span class="token punctuation">,</span> <span class="token string">','</span><span class="token punctuation">)</span> <span class="token operator">regexp</span> concat<span class="token punctuation">(</span>replace<span class="token punctuation">(</span><span class="token string">'1,2,3'</span><span class="token punctuation">,</span><span class="token string">','</span><span class="token punctuation">,</span><span class="token string">',|'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">','</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">-- 0</span></code></pre>前面的存在返回1，不存在返回0；需要注意的是，这个方法如果存在前面的集合元素包含后面的集合元素时候，也会返回1，所以可以在前后加上不可能出现的字符来判断。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> MySql </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Spring </tag>
+            
+            <tag> MySql </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>美团2021校招 技术综合-前端&amp;移动端方向 试卷</title>
       <link href="/2020/09/06/mei-tuan-2021-xiao-zhao-ji-zhu-zong-he-qian-duan-yi-dong-duan-fang-xiang-shi-juan/"/>
       <url>/2020/09/06/mei-tuan-2021-xiao-zhao-ji-zhu-zong-he-qian-duan-yi-dong-duan-fang-xiang-shi-juan/</url>
@@ -390,23 +525,23 @@
     
     
     <entry>
-      <title>linux下搜狗拼音出现候选词乱码问题</title>
+      <title>Linux下搜狗拼音出现候选词乱码问题</title>
       <link href="/2019/09/24/linux-xia-sou-gou-pin-yin-chu-xian-hou-xuan-ci-luan-ma-wen-ti/"/>
       <url>/2019/09/24/linux-xia-sou-gou-pin-yin-chu-xian-hou-xuan-ci-luan-ma-wen-ti/</url>
       
-        <content type="html"><![CDATA[<p>搜狗输入法自我感觉非常好用，但是总是会在开机的时候随机出现乱码，目前找到两个解决该问题的方法。</p><h2 id="1、删除搜狗拼音的配置文件，然后重新登录"><a href="#1、删除搜狗拼音的配置文件，然后重新登录" class="headerlink" title="1、删除搜狗拼音的配置文件，然后重新登录"></a>1、删除搜狗拼音的配置文件，然后重新登录</h2><p>命令<br> <code>cd ~/.config</code><br><code>rm -rf SogouPY* sogou*</code><br>或者<br><code>rm -rf ~/.config/SogouPY ~/.config/sogou*</code></p><h2 id="2、重启fcitx"><a href="#2、重启fcitx" class="headerlink" title="2、重启fcitx"></a>2、重启fcitx</h2><p>命令</p><ol><li>找到fcitx的进程<br> <code>pidof fcitx</code></li><li>关闭进程:pid是查到的进程号<br><code>kill pid</code></li><li>重启fcitx<br><code>fcitx</code></li></ol>]]></content>
+        <content type="html"><![CDATA[<p>搜狗输入法自我感觉非常好用，但是总是会在开机的时候随机出现乱码，目前找到两个解决该问题的方法。</p><h2 id="1、删除搜狗拼音的配置文件，然后重新登录"><a href="#1、删除搜狗拼音的配置文件，然后重新登录" class="headerlink" title="1、删除搜狗拼音的配置文件，然后重新登录"></a>1、删除搜狗拼音的配置文件，然后重新登录</h2><p>命令<br> <code>cd ~/.config</code><br><code>rm -rf SogouPY* sogou*</code><br>或者<br><code>rm -rf ~/.config/SogouPY ~/.config/sogou*</code></p><h2 id="2、重启fcitx"><a href="#2、重启fcitx" class="headerlink" title="2、重启fcitx"></a>2、重启fcitx</h2><p>命令</p><ol><li><p>找到fcitx的进程</p><p> <code>pidof fcitx</code></p></li><li><p>关闭进程:pid是查到的进程号<br><code>kill pid</code></p></li><li><p>重启fcitx<br><code>fcitx</code></p></li></ol>]]></content>
       
       
       <categories>
           
-          <category> linux </category>
+          <category> Linux </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> linux </tag>
+            <tag> Linux </tag>
             
         </tags>
       
