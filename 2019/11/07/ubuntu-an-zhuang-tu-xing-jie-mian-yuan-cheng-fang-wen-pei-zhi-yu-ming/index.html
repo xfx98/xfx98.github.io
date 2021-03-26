@@ -476,7 +476,7 @@
 <h2 id="1、安装Ubuntu图形界面"><a href="#1、安装Ubuntu图形界面" class="headerlink" title="1、安装Ubuntu图形界面"></a>1、安装Ubuntu图形界面</h2><pre class=" language-shell"><code class="language-shell">apt-get install xinit 
 apt-get install gdm
 apt-get install ubuntu-desktop</code></pre>
-<p>经过这一步已经可以在华为云远程到桌面系统啦。服务器重启后使用华为云的远程连接，就可以看到原生的Ubuntu桌面。<br><img src="https://raw.githubusercontent.com/xfx98/ms/img/hua-wei-yun-server.png" alt="华为云远程"><br><img src="https://raw.githubusercontent.com/xfx98/ms/img/ubuntu-shouye.png" alt="远程画面"></p>
+<p>经过这一步已经可以在华为云远程到桌面系统啦。服务器重启后使用华为云的远程连接，就可以看到原生的Ubuntu桌面。<br><img src="https://raw.githubusercontent.com/xfx98/ms/master/img/hua-wei-yun-server.png" alt="华为云远程"><br><img src="https://raw.githubusercontent.com/xfx98/ms/master/img/ubuntu-shouye.png" alt="远程画面"></p>
 <h2 id="2、如果要进一步设置想要在win系统远程桌面"><a href="#2、如果要进一步设置想要在win系统远程桌面" class="headerlink" title="2、如果要进一步设置想要在win系统远程桌面"></a>2、如果要进一步设置想要在win系统远程桌面</h2><p>安装xrdp ，vnc4server 和 tightvncserver，向xsession中写入那堆，让用户能够远程访问，之后就能通过win的远程桌面访问了。</p>
 <pre class=" language-shell"><code class="language-shell">apt-get install xrdp
 apt-get install vnc4server tightvncserver
@@ -484,7 +484,7 @@ echo "gnome-session --session=ubuntu-2d" > .xsession
 /etc/init.d/xrdp restart</code></pre>
 <p>（据说可以在装了X-Window之后可以直接用<a target="_blank" rel="noopener" href="https://mobaxterm.mobatek.net/download-home-edition.html">mobaxterm</a>这个软件远程。目前正在尝试）</p>
 <h2 id="3、有的小伙伴买了域名，想要配置一番"><a href="#3、有的小伙伴买了域名，想要配置一番" class="headerlink" title="3、有的小伙伴买了域名，想要配置一番"></a>3、有的小伙伴买了域名，想要配置一番</h2><ul>
-<li>需要在域名注册里进行域名解析，创建公网域名，然后点击解析<img src="https://raw.githubusercontent.com/xfx98/ms/img/yuming.png" alt="域名解析"></li>
+<li>需要在域名注册里进行域名解析，创建公网域名，然后点击解析<img src="https://raw.githubusercontent.com/xfx98/ms/master/img/yuming.png" alt="域名解析"></li>
 <li>之后在域名提供商里创建一个A解析到公网IP，这样就能通过域名远程服务器啦（反正我是这样，说的要改dns服务器，结果我没改也可以，所有就这样了。）<h2 id="3、其它服务器使用"><a href="#3、其它服务器使用" class="headerlink" title="3、其它服务器使用"></a>3、其它服务器使用</h2></li>
 <li>服务器还能搭建个人动态个人博客，比github那样的维护要好的多（不过以后要是一直用、就不能离开服务器了，总的来说github的github page要建的时候省事，动态blog用的舒服。。。就是得氪金）</li>
 <li>建个社团、团队网站作为宣传什么的。</li>
@@ -963,7 +963,7 @@ Traceback (most recent call last):
 <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
-            本站由&copy;<a href="https://raw.githubusercontent.com/xfx98/" target="_blank">xfx98</a>基于
+            本站由&copy;<a href="https://xfx98.github.io/" target="_blank">xfx98</a>基于
             <a href="https://hexo.io/" target="_blank">Hexo</a> 的
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
 
