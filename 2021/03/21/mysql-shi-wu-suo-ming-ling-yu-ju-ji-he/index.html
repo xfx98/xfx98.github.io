@@ -34,24 +34,7 @@
 <meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="xfx's blog" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
-
 <body>
-<!-- 百度自动推送 -->
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
 <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
@@ -470,18 +453,18 @@
                 <p>查看数据库innodb状态<br><code>show engine innodb status</code></p>
 <p>查看当前是否有事务运行<br><code>select * from information_schema.INNODB_TRX;</code></p>
 <p>通过kill结束当前事务<br><code>kill &#39;trx_mysql_thread_id&#39;</code></p>
-<p>查看当前线程处理情况，如果不使用full关键字，信息字段中只会显示每个语句的前100个字符。<br><code>show processlist;</code><br><code>show full processlist;</code></p>
+<p>查看当前线程处理情况，如果不使用full关键字，信息字段中只会显示每个语句的前100个字符。<br><code>show processlist; </code><br><code>show full processlist;</code></p>
 <p>查询表级锁争用情况 Table_locks_immediate  指的是能够立即获得表级锁的次数  Table_locks_waited  指的是不能立即获取表级锁而需要等待的次数<br><code>show status like &#39;Table%&#39;;</code></p>
 <p>查看行锁使用情况<br><code>show statue like &#39;innodb_row_lock%&#39;;</code></p>
 <p>获取锁定次数、锁定造成其他线程等待次数，以及锁定等待时间信息<br><code>show status like &#39;%lock%&#39;;</code></p>
 <p>innodb的dml操作的行级锁的等待时间<br><code>SHOW VARIABLES LIKE &#39;innodb_lock_wait_timeout&#39;;</code></p>
 <p>查看timeout相关参数<br><code>show variables like &#39;%timeout%&#39;;</code></p>
 <p>查看正在被锁定的的表<br><code>SHOW OPEN TABLES where In_use &gt; 0;</code></p>
-<p>查看被锁住的<br><code>SELECT * FROM INFORMATION_SCHEMA.INNODB_LOCKS;</code></p>
-<p>等待锁定<br><code>SELECT * FROM INFORMATION_SCHEMA.INNODB_LOCK_WAITS;</code></p>
+<p>查看被锁住的<br><code>SELECT * FROM INFORMATION_SCHEMA.INNODB_LOCKS; </code></p>
+<p>等待锁定<br><code>SELECT * FROM INFORMATION_SCHEMA.INNODB_LOCK_WAITS; </code></p>
 <p>查看表索引信息<br><code>SHOW INDEX FROM account;</code></p>
 <p>查看当前的隔离级别:<br><code>SELECT @@tx_isolation;</code></p>
-<p>设置当前 mySQL 连接的隔离级别:<br>会话级：只对当前的会话效<br><code>set  transaction isolation level repeatable read;</code></p>
+<p>设置当前 mySQL 连接的隔离级别:<br>会话级：只对当前的会话效<br><code>set  transaction isolation level repeatable read; </code></p>
 <p>设置数据库系统的全局的隔离级别:<br>全局级：对所的会话效<br> <code>set global transaction isolation level repeatable read;</code></p>
 <p>自动提交模式可以通过服务器变量AUTOCOMMIT来控制。<br><code>show variables like &#39;%auto%&#39;;</code><br><code>show variables like &#39;%autocommit%&#39;;</code></p>
 <p>通过查询<code>information_schema</code>数据库事务表的信息<br><code>select * from information_schema.INNODB_TRX;</code><br>下面对 <code>innodb_trx</code> 表的每个字段进行解释：</p>
@@ -506,7 +489,9 @@ trx_unique_checks：是否打开唯一性检查的标识。
 trx_foreign_key_checks：是否打开外键检查的标识。
 trx_last_foreign_key_error：最后一次的外键错误信息。
 trx_adaptive_hash_latched：自适应散列索引是否被当前事务锁住的标识。
-trx_adaptive_hash_timeout：是否立刻放弃为自适应散列索引搜索 LATCH 的标识。</code></pre><p>下面对 <code>innodb_locks</code> 表的每个字段进行解释：</p>
+trx_adaptive_hash_timeout：是否立刻放弃为自适应散列索引搜索 LATCH 的标识。
+</code></pre>
+<p>下面对 <code>innodb_locks</code> 表的每个字段进行解释：</p>
 <pre><code>lock_id：锁 ID。
 lock_trx_id：拥有锁的事务 ID。可以和 INNODB_TRX 表 JOIN 得到事务的详细信息。
 lock_mode：锁的模式。有如下锁类型：行级锁包括：S、X、IS、IX，分别代表：共享锁、排它锁、意向共享锁、意向排它锁。表级锁包括：S_GAP、X_GAP、IS_GAP、IX_GAP 和 AUTO_INC，分别代表共享间隙锁、排它间隙锁、意向共享间隙锁、意向排它间隙锁和自动递增锁。
@@ -516,11 +501,15 @@ lock_index：当 LOCK_TYPE=’RECORD’ 时，表示索引的名称；否则为 
 lock_space：当 LOCK_TYPE=’RECORD’ 时，表示锁定行的表空间 ID；否则为 NULL。
 lock_page：当 LOCK_TYPE=’RECORD’ 时，表示锁定行的页号；否则为 NULL。
 lock_rec：当 LOCK_TYPE=’RECORD’ 时，表示一堆页面中锁定行的数量，亦即被锁定的记录号；否则为 NULL。
-lock_data：当 LOCK_TYPE=’RECORD’ 时，表示锁定行的主键；否则为NULL。</code></pre><p>下面对 <code>innodb_lock_waits</code> 表的每个字段进行解释：</p>
+lock_data：当 LOCK_TYPE=’RECORD’ 时，表示锁定行的主键；否则为NULL。
+</code></pre>
+<p>下面对 <code>innodb_lock_waits</code> 表的每个字段进行解释：</p>
 <pre><code>requesting_trx_id：请求事务的 ID。
 requested_lock_id：事务所等待的锁定的 ID。可以和 INNODB_LOCKS 表 JOIN。
 blocking_trx_id：阻塞事务的 ID。
-blocking_lock_id：某一事务的锁的 ID，该事务阻塞了另一事务的运行。可以和 INNODB_LOCKS 表 JOIN。</code></pre>
+blocking_lock_id：某一事务的锁的 ID，该事务阻塞了另一事务的运行。可以和 INNODB_LOCKS 表 JOIN。
+</code></pre>
+
             </div>
             <hr/>
 
@@ -760,9 +749,10 @@ blocking_lock_id：某一事务的锁的 ID，该事务阻塞了另一事务的�
                         
                             安装下载 nvm node版本管理工具执行命令安装指定版本，进行版本管理
 nvm install 14.16.0 #安装14.16.0
+
 nvm list #查看安装所有版本
 nvm list available #查看可安装的版本
-nvm 
+nvm
                         
                     </div>
                     <div class="publish-info">

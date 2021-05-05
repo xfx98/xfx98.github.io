@@ -35,24 +35,7 @@ RISC（精简指令集计算机）的三个基本要素：一个有限的简单�
 <meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="xfx's blog" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
-
 <body>
-<!-- 百度自动推送 -->
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
 <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
@@ -477,7 +460,7 @@ RISC（精简指令集计算机）的三个基本要素：一个有限的简单�
 <li>计算机由<code>存储器、运算器、控制器、输入设备和输出设备</code>五大基本部件组成，并规定了5部分的基本功能。</li>
 </ul>
 </li>
-<li>同步控制方式：<code>含义</code>：又称固定时序控制方式或无应答式控制方式。任何指令的执行或指令中每个微操作的执行都受事先安排好的时序信号的控制。<code>特点</code>：每个周期状态中产生统一数目的<code>节拍电位</code>及<code>时标工作脉冲</code>。以最复杂指令的实现为基准。<code>优点</code>：设计简单，操作控制容易实现。<code>缺点</code>：效率低</li>
+<li>同步控制方式：<code>含义</code>：又称固定时序控制方式或无应答式控制方式。任何指令的执行或指令中每个微操作的执行都受事先安排好的时序信号的控制。<code>特点 </code>：每个周期状态中产生统一数目的<code>节拍电位</code>及<code>时标工作脉冲</code>。以最复杂指令的实现为基准。<code>优点</code>：设计简单，操作控制容易实现。<code>缺点</code>：效率低</li>
 <li>异步控制方式：<code>含义</code>：可变时序控制方式或应答式控制方式。执行一条指令需要多少节拍，不做统一规定，而是根据每条指令的具体情况而定，需要多少，控制器就产生多少时标信号。<code>特点</code>：每一条指令执行完毕后都必须向控制时序部件发回一个回答信号，控制器收到回答信号后，才开始下一条指令的执行。<code>优点</code>：指令的运行效率高；<code>缺点</code>：控制线路比较复杂。 </li>
 <li>根据通道的工作方式，通道分为：选择通道、数组（成组）多路通道、字节多路通道。</li>
 <li>DMA（Direct Memory Access,直接内存访问）与通道的不同之处：<code>工作原理不同</code>：DMA通过专门设计的硬件控制逻辑来控制数据交换的过程；而通道则是一个具有特殊功能的处理器，它具有自己的指令和程序，通过执行通道程序来控制数据交换的过程。<code>所控制的外设类型不同</code>：DMA只能控制速度较快、类型单一的外设；而通道则可以支持多种类型的外设。</li>
@@ -828,8 +811,8 @@ time limit per test1 secondmemory limit per test256 megabytesinputstandard input
 浮点数（float）：5.2、6.66
 虚数（complet）：3+4j
 字符串（str）：&#39;ABC&#39;、&quot;666&quot;
-列表（list）：[1,2,3]
-集
+ 列表（list）：[1,2,3]
+
                         
                     </div>
                     <div class="publish-info">

@@ -33,24 +33,7 @@ wget http://dev.mysql.com/get/mysql57-community-r">
 <meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="xfx's blog" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
-
 <body>
-<!-- 百度自动推送 -->
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
 <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
@@ -467,38 +450,54 @@ wget http://dev.mysql.com/get/mysql57-community-r">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="下载RPM"><a href="#下载RPM" class="headerlink" title="下载RPM"></a>下载RPM</h2><p>可以前往MySQL官网进行下载，本次安装使用mysql57-community-release-el7-8.noarch.rpm。</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">wget</span> http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm</code></pre>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">wget</span> http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm
+</code></pre>
 <p>下载完成后将Yum库导入到服务器。</p>
-<pre class=" language-bash"><code class="language-bash">yum localinstall mysql57-community-release-el7-8.noarch.rpm</code></pre>
+<pre class=" language-bash"><code class="language-bash">yum localinstall mysql57-community-release-el7-8.noarch.rpm
+</code></pre>
 <p>检查是否安装成功。</p>
-<pre class=" language-bash"><code class="language-bash">yum repolist enabled <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">"mysql.*-community.*"</span></code></pre>
+<pre class=" language-bash"><code class="language-bash">yum repolist enabled <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">"mysql.*-community.*"</span>
+</code></pre>
 <h2 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h2><p>通过第一步的操作我们当前的Yum库中已经包含了MySQLServer、MySQL工作台管理工具以及ODBC驱动，现在我们就可以通过下面的命令简单的安装MySQL了。</p>
-<pre class=" language-bash"><code class="language-bash">yum <span class="token function">install</span> mysql-community-server</code></pre>
+<pre class=" language-bash"><code class="language-bash">yum <span class="token function">install</span> mysql-community-server
+</code></pre>
 <p>若出现</p>
 <pre><code>所有匹配已被模块的排除过滤过滤掉。: mysql-community-server
-错误：没有任何匹配: mysql-community-server</code></pre><p>执行</p>
+错误：没有任何匹配: mysql-community-server
+</code></pre>
+<p>执行</p>
 <pre class=" language-bash"><code class="language-bash">yum module disable mysql
-yum <span class="token function">install</span> mysql-community-server</code></pre>
+yum <span class="token function">install</span> mysql-community-server
+</code></pre>
 <p>安装过程中会提示选择项，请选择y。</p>
 <h2 id="启动MySQL"><a href="#启动MySQL" class="headerlink" title="启动MySQL"></a>启动MySQL</h2><p>执行下面的命令来启动MySQL服务。</p>
-<pre class=" language-bash"><code class="language-bash">systemctl start mysqld</code></pre>
+<pre class=" language-bash"><code class="language-bash">systemctl start mysqld
+</code></pre>
 <p>查看MySQL的启动状态。</p>
-<pre class=" language-bash"><code class="language-bash">systemctl status mysqld</code></pre>
+<pre class=" language-bash"><code class="language-bash">systemctl status mysqld
+</code></pre>
 <h3 id="设置开机启动"><a href="#设置开机启动" class="headerlink" title="设置开机启动"></a>设置开机启动</h3><p>执行下面的命令来配置MySQL开机启动。</p>
 <pre class=" language-bash"><code class="language-bash">systemctl <span class="token function">enable</span> mysqld
-systemctl daemon-reload</code></pre>
+systemctl daemon-reload
+</code></pre>
 <h3 id="修改MySQL-root账号密码"><a href="#修改MySQL-root账号密码" class="headerlink" title="修改MySQL root账号密码"></a>修改MySQL root账号密码</h3><p>由于MySQL安装完成之后会在/var/log/mysqld.log文件中给root生成了一个默认密码，因此我们可以通过下面的方式找到root的默认密码，然后登陆MySQL进行修改。</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">grep</span> <span class="token string">'temporary password'</span> /var/log/mysqld.log</code></pre>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">grep</span> <span class="token string">'temporary password'</span> /var/log/mysqld.log
+</code></pre>
 <p>使用上一步获取到的root默认密码来登陆MySQL。</p>
-<pre class=" language-bash"><code class="language-bash">mysql -u root -p</code></pre>
+<pre class=" language-bash"><code class="language-bash">mysql -u root -p
+</code></pre>
 <p>修改root账号密码</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">USER</span> <span class="token string">'root'</span>@'localhost<span class="token string">' IDENTIFIED BY '</span>xxxxx'<span class="token punctuation">;</span></code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">USER</span> <span class="token string">'root'</span>@'localhost<span class="token string">' IDENTIFIED BY '</span>xxxxx'<span class="token punctuation">;</span>
+</code></pre>
 <p>密码强度问题：设置密码时密码强度可能不够，所有可以通过设置全局参数改变<br>首先查看密码验证相关变量</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">show</span> variables <span class="token operator">like</span> <span class="token string">'validate_password%'</span><span class="token punctuation">;</span></code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">show</span> variables <span class="token operator">like</span> <span class="token string">'validate_password%'</span><span class="token punctuation">;</span>
+</code></pre>
 <p>验证策略是MEDIUM,就是长度，数字，大小写，特殊字符都得验证，因此出现如此所示的错误，就很正常了。我们可以修改validate_password_policy=0</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">set</span> <span class="token keyword">global</span> validate_password_policy<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span></code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">set</span> <span class="token keyword">global</span> validate_password_policy<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+</code></pre>
 <p>设置密码验证长度</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">set</span> <span class="token keyword">global</span> validate_password_length<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">;</span></code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">set</span> <span class="token keyword">global</span> validate_password_length<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">;</span>
+</code></pre>
 <p>1、修改密码的四种方式</p>
 <p>a)shell命令行下 <code>mysqladmin -uroot -poldpassword password newpassword</code><br>b)sql命令行下 <code>set password = password(newpassword);</code><br>c)sql命令行下 <code>update user set authentication_string=password(newpassword) where user=&#39;root&#39;;</code><br>d)sql命令行下 <code>alter user root@&#39;localhost&#39; identified by &#39;newpassword&#39;;</code>//使用随机密码登录，如果要使用数据，查看数据库等操作时mysql会推荐这种写法改变密码。<br>2、密码策略的三个值分别代表的含义</p>
 <p>a)LOW(0)只检查长度。</p>
@@ -507,29 +506,38 @@ systemctl daemon-reload</code></pre>
 <h3 id="设置远程访问"><a href="#设置远程访问" class="headerlink" title="设置远程访问"></a>设置远程访问</h3><p>远程登录的时候需要设置权限，允许所有IP访问</p>
 <pre class=" language-sql"><code class="language-sql"><span class="token keyword">use</span> mysql<span class="token punctuation">;</span>
 <span class="token keyword">update</span> <span class="token keyword">user</span> <span class="token keyword">set</span> host <span class="token operator">=</span> <span class="token string">'%'</span> <span class="token keyword">where</span> <span class="token keyword">user</span> <span class="token operator">=</span> <span class="token string">'root'</span><span class="token punctuation">;</span>
-FLUSH <span class="token keyword">PRIVILEGES</span><span class="token punctuation">;</span></code></pre>
+FLUSH <span class="token keyword">PRIVILEGES</span><span class="token punctuation">;</span>
+</code></pre>
 <p>或创建可远程访问的用户</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">GRANT</span> <span class="token keyword">ALL</span> <span class="token keyword">PRIVILEGES</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> <span class="token string">'admin'</span>@'<span class="token operator">%</span><span class="token string">' IDENTIFIED BY '</span>admin' <span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span><span class="token punctuation">;</span></code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">GRANT</span> <span class="token keyword">ALL</span> <span class="token keyword">PRIVILEGES</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> <span class="token string">'admin'</span>@'<span class="token operator">%</span><span class="token string">' IDENTIFIED BY '</span>admin' <span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span><span class="token punctuation">;</span>
+</code></pre>
 <p>另外就是防火墙问题，可以先关闭防火墙，列出的两个命令可以选择使用其中一个即可，也可配置开放端口<br>1:查看防火状态</p>
 <pre class=" language-bash"><code class="language-bash">systemctl status firewalld
-<span class="token function">service</span> iptables status</code></pre>
+<span class="token function">service</span> iptables status
+</code></pre>
 <p>2:暂时关闭防火墙</p>
 <pre class=" language-bash"><code class="language-bash">systemctl stop firewalld
-<span class="token function">service</span>  iptables stop</code></pre>
+<span class="token function">service</span>  iptables stop
+</code></pre>
 <p>3:永久关闭防火墙</p>
 <pre class=" language-bash"><code class="language-bash">systemctl disable firewalld
-<span class="token function">chkconfig</span> iptables off</code></pre>
+<span class="token function">chkconfig</span> iptables off
+</code></pre>
 <p>4:重启防火墙</p>
 <pre class=" language-bash"><code class="language-bash">systemctl <span class="token function">enable</span> firewalld
-<span class="token function">service</span> iptables restart  </code></pre>
+<span class="token function">service</span> iptables restart  
+</code></pre>
 <h4 id="配置开放端口"><a href="#配置开放端口" class="headerlink" title="配置开放端口"></a>配置开放端口</h4><p>查看防火墙已开放端口列表</p>
-<pre class=" language-bash"><code class="language-bash">firewall-cmd --list-all</code></pre>
+<pre class=" language-bash"><code class="language-bash">firewall-cmd --list-all
+</code></pre>
 <p>防火墙添加端口</p>
 <pre class=" language-bash"><code class="language-bash">firewall-cmd --permanent --add-port<span class="token operator">=</span>3306/tcp
-firewall-cmd --reload</code></pre>
+firewall-cmd --reload
+</code></pre>
 <p>防火墙关闭端口</p>
 <pre class=" language-bash"><code class="language-bash">firewall-cmd --permanent --remove-port 3306/tcp
-firewall-cmd --reload</code></pre>
+firewall-cmd --reload
+</code></pre>
 <p>出现连接数太多报错时</p>
 <blockquote>
 <p>Data source rejected establishment of connection,  message from server: “Too many connections”</p>
@@ -537,10 +545,11 @@ firewall-cmd --reload</code></pre>
 <p>可通过执行SQL语句设置最大连接数，此方法重启失效</p>
 <pre class=" language-sql"><code class="language-sql"><span class="token keyword">show</span> variables <span class="token operator">like</span> <span class="token string">"max_connections"</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">-- 显示最大连接数</span>
 <span class="token keyword">show</span> processlist <span class="token punctuation">;</span> <span class="token comment" spellcheck="true">--显示当前连接数</span>
-<span class="token keyword">set</span> <span class="token keyword">global</span> max_connections<span class="token operator">=</span><span class="token number">1000</span> <span class="token comment" spellcheck="true">--设置最大连接数1000</span></code></pre>
+<span class="token keyword">set</span> <span class="token keyword">global</span> max_connections<span class="token operator">=</span><span class="token number">1000</span> <span class="token comment" spellcheck="true">--设置最大连接数1000</span>
+</code></pre>
 <p>也可修改my.cnf配置文件<br>在<code>[mysqld]</code>下面添加<code>max_connections=1000</code><br>执行：<code>service mysql restart</code> 重新启动MySQL服务<br>win系统是my.ini的属性<code>max_connections</code><br>该文件可能存在与安装目录或者<code>ProgramData</code>的MySQL目录下，我的是在<code>ProgramData</code>下的</p>
 <h3 id="MySQL常用默认文件路径"><a href="#MySQL常用默认文件路径" class="headerlink" title="MySQL常用默认文件路径"></a>MySQL常用默认文件路径</h3><p>下面提供一下linux的MySQL的一些常用的默认文件路径。</p>
-<p>配置文件：<code>/etc/my.cnf</code><br>日志文件：<code>/var/log//var/log/mysqld.log</code><br>服务启动脚本：<code>/usr/lib/systemd/system/mysqld.service</code><br>socket文件：<code>/var/run/mysqld/mysqld.pid</code></p>
+<p>配置文件：<code>/etc/my.cnf </code><br>日志文件：<code>/var/log//var/log/mysqld.log </code><br>服务启动脚本：<code>/usr/lib/systemd/system/mysqld.service </code><br>socket文件：<code>/var/run/mysqld/mysqld.pid</code></p>
 
             </div>
             <hr/>

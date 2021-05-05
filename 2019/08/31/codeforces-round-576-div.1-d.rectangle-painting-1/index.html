@@ -33,24 +33,7 @@ time limit per test1 secondmemory limit per test256 megabytesinputstandard input
 <meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="xfx's blog" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
-
 <body>
-<!-- 百度自动推送 -->
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
 <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
@@ -443,7 +426,7 @@ time limit per test1 secondmemory limit per test256 megabytesinputstandard input
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        989
+                        992
                     </div>
                     
 
@@ -480,26 +463,42 @@ time limit per test1 secondmemory limit per test256 megabytesinputstandard input
 <pre><code>3
 ###
 #.#
-###</code></pre><p>output</p>
-<pre><code>3</code></pre><p>input</p>
+###
+</code></pre>
+<p>output</p>
+<pre><code>3
+</code></pre>
+<p>input</p>
 <pre><code>3
 ...
 ...
-...</code></pre><p>output</p>
-<pre><code>0</code></pre><p>inputCopy</p>
+...
+</code></pre>
+<p>output</p>
+<pre><code>0
+</code></pre>
+<p>inputCopy</p>
 <pre><code>4
 #...
 ....
 ....
-#...</code></pre><p>output</p>
-<pre><code>2</code></pre><p>input</p>
+#...
+</code></pre>
+<p>output</p>
+<pre><code>2
+</code></pre>
+<p>input</p>
 <pre><code>5
 #...#
 .#.#.
 .....
 .#...
-#....</code></pre><p>output</p>
-<pre><code>5</code></pre><p>题意为有一个方形的区域，有白块和黑块，一次可以将一个矩形区域内的所有方块变成白色，代价为max（m,n）,即矩形的长边。求最小代价。<br>这个问题可以使用dp解决。主要就是将这个大问题分解成小问题。f[x][y][z][w]表示使（x,y）,(z,w)两点之间的区域全变成白色所需要的最低代价。<br>这里将整个问题不断分解成两个小问题，试探所有可能，来求区域最小。递归的方法比较节省代码，同时更容易理解。</p>
+#....
+</code></pre>
+<p>output</p>
+<pre><code>5
+</code></pre>
+<p>题意为有一个方形的区域，有白块和黑块，一次可以将一个矩形区域内的所有方块变成白色，代价为max（m,n）,即矩形的长边。求最小代价。<br>这个问题可以使用dp解决。主要就是将这个大问题分解成小问题。f[x][y][z][w]表示使（x,y）,(z,w)两点之间的区域全变成白色所需要的最低代价。<br>这里将整个问题不断分解成两个小问题，试探所有可能，来求区域最小。递归的方法比较节省代码，同时更容易理解。</p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>BufferedInputStream<span class="token punctuation">;</span>
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>BufferedOutputStream<span class="token punctuation">;</span>
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>BufferedReader<span class="token punctuation">;</span>
@@ -511,19 +510,19 @@ time limit per test1 secondmemory limit per test256 megabytesinputstandard input
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Arrays<span class="token punctuation">;</span>
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Scanner<span class="token punctuation">;</span>
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Stack<span class="token punctuation">;</span>
-
+ 
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token keyword">static</span> StreamTokenizer st <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StreamTokenizer</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BufferedInputStream</span><span class="token punctuation">(</span>System<span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">static</span> BufferedReader br <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BufferedReader</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">InputStreamReader</span><span class="token punctuation">(</span>System<span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">static</span> PrintWriter pr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PrintWriter</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BufferedOutputStream</span><span class="token punctuation">(</span>System<span class="token punctuation">.</span>out<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">static</span> Scanner sc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span>System<span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
+ 
 <span class="token comment" spellcheck="true">//        long tic = System.currentTimeMillis();</span>
 <span class="token comment" spellcheck="true">//        long toc = System.currentTimeMillis();</span>
 <span class="token comment" spellcheck="true">//        System.out.println("Elapsed time: " + (toc - tic) + " ms");</span>
     <span class="token keyword">static</span> <span class="token keyword">int</span> f<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token number">55</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">55</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">55</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">55</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token keyword">static</span> String s<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-
+ 
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token keyword">int</span> n <span class="token operator">=</span> sc<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         s <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">[</span>n<span class="token operator">+</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -540,9 +539,9 @@ time limit per test1 secondmemory limit per test256 megabytesinputstandard input
             <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
         <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">dfs</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> n<span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
+ 
     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-
+ 
     <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">,</span> <span class="token keyword">int</span> z<span class="token punctuation">,</span> <span class="token keyword">int</span> w<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span>f<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">[</span>z<span class="token punctuation">]</span><span class="token punctuation">[</span>w<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
             <span class="token keyword">return</span> f<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">[</span>z<span class="token punctuation">]</span><span class="token punctuation">[</span>w<span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -555,7 +554,7 @@ time limit per test1 secondmemory limit per test256 megabytesinputstandard input
             ret <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span><span class="token function">dfs</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">dfs</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> z<span class="token punctuation">,</span> w<span class="token punctuation">)</span><span class="token punctuation">,</span> ret<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> f<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">[</span>z<span class="token punctuation">]</span><span class="token punctuation">[</span>w<span class="token punctuation">]</span> <span class="token operator">=</span> ret<span class="token punctuation">;</span>
     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-
+ 
     <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">nextNum</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token keyword">try</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
             st<span class="token punctuation">.</span><span class="token function">nextToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -564,7 +563,7 @@ time limit per test1 secondmemory limit per test256 megabytesinputstandard input
         <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> st<span class="token punctuation">.</span>nval<span class="token punctuation">;</span>
     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-
+ 
     <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">log2</span><span class="token punctuation">(</span><span class="token keyword">long</span> x<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token keyword">int</span> flag <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
         <span class="token keyword">int</span> log <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
@@ -574,7 +573,7 @@ time limit per test1 secondmemory limit per test256 megabytesinputstandard input
         <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> log<span class="token punctuation">;</span>
     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-
+ 
     <span class="token keyword">static</span> <span class="token keyword">long</span> <span class="token function">phi</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token keyword">long</span> res <span class="token operator">=</span> x<span class="token punctuation">;</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">long</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> Math<span class="token punctuation">.</span><span class="token function">sqrt</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
@@ -588,7 +587,7 @@ time limit per test1 secondmemory limit per test256 megabytesinputstandard input
             res <span class="token operator">=</span> res <span class="token operator">/</span> x <span class="token operator">*</span> <span class="token punctuation">(</span>x <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-
+ 
     <span class="token keyword">static</span> <span class="token keyword">long</span> <span class="token function">pow</span><span class="token punctuation">(</span><span class="token keyword">long</span> a<span class="token punctuation">,</span> <span class="token keyword">long</span> b<span class="token punctuation">,</span> <span class="token keyword">long</span> mod<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span>b <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
             <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
@@ -599,7 +598,7 @@ time limit per test1 secondmemory limit per test256 megabytesinputstandard input
         <span class="token keyword">else</span>
             <span class="token keyword">return</span> a <span class="token operator">*</span> <span class="token function">pow</span><span class="token punctuation">(</span>a <span class="token operator">*</span> a <span class="token operator">%</span> mod<span class="token punctuation">,</span> b <span class="token operator">>></span> <span class="token number">1</span><span class="token punctuation">,</span> mod<span class="token punctuation">)</span> <span class="token operator">%</span> mod<span class="token punctuation">;</span>
     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-
+ 
     <span class="token keyword">static</span> <span class="token keyword">long</span> <span class="token function">gcd</span><span class="token punctuation">(</span><span class="token keyword">long</span> a<span class="token punctuation">,</span> <span class="token keyword">long</span> b<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span>b <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
             <span class="token keyword">return</span> a<span class="token punctuation">;</span>
@@ -607,7 +606,7 @@ time limit per test1 secondmemory limit per test256 megabytesinputstandard input
             <span class="token keyword">return</span> <span class="token function">gcd</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span> a <span class="token operator">%</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-
+ 
     <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token keyword">try</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
             st<span class="token punctuation">.</span><span class="token function">nextToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -616,7 +615,7 @@ time limit per test1 secondmemory limit per test256 megabytesinputstandard input
         <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> st<span class="token punctuation">.</span>nval<span class="token punctuation">;</span>
     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-
+ 
     <span class="token keyword">static</span> <span class="token keyword">double</span> <span class="token function">nextDouble</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token keyword">try</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
             st<span class="token punctuation">.</span><span class="token function">nextToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -625,7 +624,7 @@ time limit per test1 secondmemory limit per test256 megabytesinputstandard input
         <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> st<span class="token punctuation">.</span>nval<span class="token punctuation">;</span>
     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-
+ 
     <span class="token keyword">static</span> String <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token keyword">try</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
             st<span class="token punctuation">.</span><span class="token function">nextToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -634,7 +633,7 @@ time limit per test1 secondmemory limit per test256 megabytesinputstandard input
         <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> st<span class="token punctuation">.</span>sval<span class="token punctuation">;</span>
     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-
+ 
     <span class="token keyword">static</span> <span class="token keyword">long</span> <span class="token function">nextLong</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token keyword">try</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
             st<span class="token punctuation">.</span><span class="token function">nextToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -644,27 +643,28 @@ time limit per test1 secondmemory limit per test256 megabytesinputstandard input
         <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">long</span><span class="token punctuation">)</span> st<span class="token punctuation">.</span>nval<span class="token punctuation">;</span>
     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-
+ 
 <span class="token keyword">class</span> <span class="token class-name">Node</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token keyword">int</span> a<span class="token punctuation">;</span>
     <span class="token keyword">int</span> b<span class="token punctuation">;</span>
     <span class="token keyword">int</span> c<span class="token punctuation">;</span>
-
+ 
     <span class="token keyword">public</span> <span class="token function">Node</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-
+ 
     <span class="token keyword">public</span> <span class="token function">Node</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">,</span> <span class="token keyword">int</span> c<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span>a <span class="token operator">=</span> a<span class="token punctuation">;</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span>b <span class="token operator">=</span> b<span class="token punctuation">;</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span>c <span class="token operator">=</span> c<span class="token punctuation">;</span>
     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-
+ 
     <span class="token annotation punctuation">@Override</span>
     <span class="token keyword">public</span> String <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token string">"Node [a="</span> <span class="token operator">+</span> a <span class="token operator">+</span> <span class="token string">", b="</span> <span class="token operator">+</span> b <span class="token operator">+</span> <span class="token string">"]"</span><span class="token punctuation">;</span>
     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
 
             </div>
             <hr/>
@@ -903,7 +903,7 @@ time limit per test1 secondmemory limit per test256 megabytesinputstandard input
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            super_log题意是有个一函数log a(x) ,x&lt;1时为-1，x&gt;1为1+log a(log a(x))给你a，b，m让求最小使不等式（log a*(x)&gt;=b）成立的最小x%m这题可以转换为求a的a次方的a次方…
+                            super_log题意是有个一函数log a*(x) ,x&lt;1时为-1，x&gt;1为1+log a*(log a(x))给你a，b，m让求最小使不等式（log a*(x)&gt;=b）成立的最小x%m这题可以转换为求a的a次方的a次
                         
                     </div>
                     <div class="publish-info">

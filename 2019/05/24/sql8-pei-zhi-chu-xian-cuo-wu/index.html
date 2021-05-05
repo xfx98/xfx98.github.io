@@ -32,24 +32,7 @@
 <meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="xfx's blog" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
-
 <body>
-<!-- 百度自动推送 -->
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
 <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
@@ -472,7 +455,8 @@
                 <p>使用MySQL8的时候出现 org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution错误。<br>配置文件出现了问题，与mysql 5的配置文化出现了不同<br>首先驱动要下载 <a target="_blank" rel="noopener" href="https://download.csdn.net/download/qq_40827780/11200742">mysql-connector-java-8.0.16.jar</a> 点击可直接下载，<a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/index-connectors.html">官网下载</a>也可以找到。<br>然后以下三项配置项出现区别，驱动包，方言和URL，驱动的包名有所变化，其中 url 的 serverTimezone=Asia/Shanghai不可少，这是MySQL8新增要求，否则会报错，而5.7以下则不需要。这是设置时区，可以更改为其它时区，这里是GMT+8上海时。<br>这里使用的hibernate框架的配置，如果不用则需要一定的修改。但和MySQL5配置方面应该就有如下三个区别。</p>
 <pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>hibernate.connection.url<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>jdbc:mysql://localhost:3306/blog?useUnicode=true<span class="token entity" title="&amp;">&amp;amp;</span>serverTimezone=Asia/Shanghai<span class="token entity" title="&amp;">&amp;amp;</span>characterEncoding=UTF-8<span class="token entity" title="&amp;">&amp;amp;</span>useSSL=false<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>dialect<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>org.hibernate.dialect.MySQL8Dialect<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>hibernate.connection.driver_class<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>com.mysql.cj.jdbc.Driver <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span></code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>hibernate.connection.driver_class<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>com.mysql.cj.jdbc.Driver <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+</code></pre>
 <p>以下是我的hibernate配置文件</p>
 <pre class=" language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
 <span class="token doctype">&lt;!DOCTYPE hibernate-configuration PUBLIC   
@@ -486,18 +470,18 @@
         <span class="token comment" spellcheck="true">&lt;!-- mysql 5请改配置为  com.mysql.jdbc.Driver --></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>hibernate.connection.driver_class<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>com.mysql.cj.jdbc.Driver <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
         <span class="token comment" spellcheck="true">&lt;!--设置数据库的连接jdbc:mysql://localhost:3306/dbname?useUnicode=true&amp;amp;serverTimezone=Asia/Shanghai&amp;amp;characterEncoding=UTF-8&amp;amp;useSSL=false,其中localhost表示mysql服务器名称，此处为本机，dbname是数据库名 若serverTimezone=Asia/Shanghai不写则会报错--></span>
-
+            
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>hibernate.connection.url<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>jdbc:mysql://localhost:3306/blog?useUnicode=true<span class="token entity" title="&amp;">&amp;amp;</span>serverTimezone=Asia/Shanghai<span class="token entity" title="&amp;">&amp;amp;</span>characterEncoding=UTF-8<span class="token entity" title="&amp;">&amp;amp;</span>useSSL=false<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
         <span class="token comment" spellcheck="true">&lt;!--连接数据库是用户名 --></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>hibernate.connection.username<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>root <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
         <span class="token comment" spellcheck="true">&lt;!--连接数据库是密码 --></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>hibernate.connection.password<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>123456 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
-
+        
         <span class="token comment" spellcheck="true">&lt;!--hibernate.dialect 只是Hibernate使用的数据库方言,就是要用Hibernate连接那种类型的数据库服务器。 --></span>
-
+        
         <span class="token comment" spellcheck="true">&lt;!--mysql 5请改配置为 org.hibernate.dialect.MySQL5Dialect &lt;/property> --></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>hibernate.dialect<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>org.hibernate.dialect.MySQL8Dialect<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
-
+        
         <span class="token comment" spellcheck="true">&lt;!-- jdbc.use_scrollable_resultset是否允许Hibernate用JDBC的可滚动的结果集。对分页的结果集。对分页时的设置非常有帮助 
             &lt;property name="jdbc.use_scrollable_resultset">false &lt;/property> --></span>
 
@@ -507,7 +491,8 @@
         <span class="token comment" spellcheck="true">&lt;!--是否在后台显示Hibernate用到的SQL语句，开发时设置为true，便于差错，程序运行时可以在Eclipse的控制台显示Hibernate的执行Sql语句。项目部署后可以设置为false，提高运行效率 --></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>hibernate.show_sql<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>true <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>session-factory</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>hibernate-configuration</span><span class="token punctuation">></span></span>  </code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>hibernate-configuration</span><span class="token punctuation">></span></span>  
+</code></pre>
 
             </div>
             <hr/>

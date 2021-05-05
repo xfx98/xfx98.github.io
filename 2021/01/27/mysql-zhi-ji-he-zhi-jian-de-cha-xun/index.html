@@ -36,24 +36,7 @@
 <meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="xfx's blog" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
-
 <body>
-<!-- 百度自动推送 -->
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
 <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
@@ -474,11 +457,13 @@
 <li>判断一个元素是否在集合里面。<br>可用 IN 判断，要求传入参数为集合，然后通过</li>
 </ol>
 <pre class=" language-xml"><code class="language-xml"> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>foreach</span> <span class="token attr-name">collection</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>List<span class="token punctuation">"</span></span> <span class="token attr-name">item</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>i<span class="token punctuation">"</span></span> <span class="token attr-name">index</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>index<span class="token punctuation">"</span></span> <span class="token attr-name">open</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>(<span class="token punctuation">"</span></span> <span class="token attr-name">close</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>)<span class="token punctuation">"</span></span> <span class="token attr-name">separator</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>,<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
- <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>foreach</span><span class="token punctuation">></span></span></code></pre>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>foreach</span><span class="token punctuation">></span></span>
+</code></pre>
 <p>对集合进行整理。<br>另一个方法是使用 FIND_IN_SET 函数，这个要求传入参数为以逗号分隔的字符串。<br>如 FIND_IN_SET(em,emlist) , FIND_IN_SET(‘1’,’1,2,3’ ) 会回传元素所在索引。不存在返回0。</p>
 <ol start="2">
 <li>判断一个集合里面是否有另一个集合的元素。<br>使用策略也可以传列表操作，使用上面foreach进行操作每一个元素是否在另一个。<br>另外就是使用正则 <pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> concat<span class="token punctuation">(</span><span class="token string">'1,4'</span><span class="token punctuation">,</span> <span class="token string">','</span><span class="token punctuation">)</span> <span class="token operator">regexp</span> concat<span class="token punctuation">(</span>replace<span class="token punctuation">(</span><span class="token string">'1,2,3'</span><span class="token punctuation">,</span><span class="token string">','</span><span class="token punctuation">,</span><span class="token string">',|'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">','</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">-- 1</span>
-<span class="token keyword">select</span> concat<span class="token punctuation">(</span><span class="token string">'5,4'</span><span class="token punctuation">,</span> <span class="token string">','</span><span class="token punctuation">)</span> <span class="token operator">regexp</span> concat<span class="token punctuation">(</span>replace<span class="token punctuation">(</span><span class="token string">'1,2,3'</span><span class="token punctuation">,</span><span class="token string">','</span><span class="token punctuation">,</span><span class="token string">',|'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">','</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">-- 0</span></code></pre>
+<span class="token keyword">select</span> concat<span class="token punctuation">(</span><span class="token string">'5,4'</span><span class="token punctuation">,</span> <span class="token string">','</span><span class="token punctuation">)</span> <span class="token operator">regexp</span> concat<span class="token punctuation">(</span>replace<span class="token punctuation">(</span><span class="token string">'1,2,3'</span><span class="token punctuation">,</span><span class="token string">','</span><span class="token punctuation">,</span><span class="token string">',|'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">','</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">-- 0</span>
+</code></pre>
 前面的存在返回1，不存在返回0；需要注意的是，这个方法如果存在前面的集合元素包含后面的集合元素时候，也会返回1，所以可以在前后加上不可能出现的字符来判断。</li>
 </ol>
 

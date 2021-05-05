@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="The Preliminary Contest for ICPC Asia Nanjing 2019 B_super_log, xfx&#39;s blog">
-    <meta name="description" content="super_log题意是有个一函数log a(x) ,x&amp;lt;1时为-1，x&amp;gt;1为1+log a(log a(x))给你a，b，m让求最小使不等式（log a*(x)&amp;gt;=b）成立的最小x%m这题可以转换为求a的a次方的a次方…">
+    <meta name="description" content="super_log题意是有个一函数log a*(x) ,x&amp;lt;1时为-1，x&amp;gt;1为1+log a*(log a(x))给你a，b，m让求最小使不等式（log a*(x)&amp;gt;=b）成立的最小x%m这题可以转换为求a的a次方的a次">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -32,24 +32,7 @@
 <meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="xfx's blog" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
-
 <body>
-<!-- 百度自动推送 -->
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
 <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
@@ -465,7 +448,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="super-log"><a href="#super-log" class="headerlink" title="super_log"></a><a target="_blank" rel="noopener" href="https://nanti.jisuanke.com/t/41299">super_log</a></h2><p>题意是有个一函数log a<em>(x) ,x&lt;1时为-1，x&gt;1为1+log a</em>(log a(x))<br>给你a，b，m让求最小使不等式（log a*(x)&gt;=b）成立的最小x%m<br>这题可以转换为求a的a次方的a次方……b个，模于m。<br>求幂可以用快速幂，然后必须降幂，因为m不一定是素数，所以这里就要用广义欧拉降幂来降幂了，否则幂就会因为太大而出错。<br>广义欧拉降幂需要求欧拉函数。这里用的筛法求的。</p>
+                <h2 id="super-log"><a href="#super-log" class="headerlink" title="super_log"></a><a target="_blank" rel="noopener" href="https://nanti.jisuanke.com/t/41299">super_log</a></h2><p>题意是有个一函数log a*(x) ,x&lt;1时为-1，x&gt;1为1+log a*(log a(x))<br>给你a，b，m让求最小使不等式（log a*(x)&gt;=b）成立的最小x%m<br>这题可以转换为求a的a次方的a次方……b个，模于m。<br>求幂可以用快速幂，然后必须降幂，因为m不一定是素数，所以这里就要用广义欧拉降幂来降幂了，否则幂就会因为太大而出错。<br>广义欧拉降幂需要求欧拉函数。这里用的筛法求的。</p>
 <p><strong>如有不懂欢迎提问。</strong></p>
 <p>java代码</p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>BufferedInputStream<span class="token punctuation">;</span>
@@ -589,7 +572,8 @@
         <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">long</span><span class="token punctuation">)</span> st<span class="token punctuation">.</span>nval<span class="token punctuation">;</span>
     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
 
             </div>
             <hr/>

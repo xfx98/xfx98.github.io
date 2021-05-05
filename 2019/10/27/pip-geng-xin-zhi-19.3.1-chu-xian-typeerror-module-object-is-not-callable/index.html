@@ -34,24 +34,7 @@ Traceback (most recent call last):
 <meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="xfx's blog" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
-
 <body>
-<!-- 百度自动推送 -->
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
 <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
@@ -474,13 +457,15 @@ Traceback (most recent call last):
   File <span class="token string">"c:\program files (x86)\python37-32\lib\runpy.py"</span><span class="token punctuation">,</span> line 85<span class="token punctuation">,</span> in _run_code
     exec<span class="token punctuation">(</span>code<span class="token punctuation">,</span> run_globals<span class="token punctuation">)</span>
   File <span class="token string">"C:\Program Files (x86)\Python37-32\Scripts\pip.exe\__main__.py"</span><span class="token punctuation">,</span> line 9<span class="token punctuation">,</span> in &lt;module>
-TypeError: <span class="token string">'module'</span> object is not callable</code></pre>
+TypeError: <span class="token string">'module'</span> object is not callable
+</code></pre>
 <p>我估计是19.3.1的pip版本问题，移除了直接能用<code>pip</code>命令功能，现在使用pip命令需要把pip前加上<code>python -m</code> 之后就能写<code>pip</code>命令了，搞不懂官方为啥要这样（手动狗头）</p>
 <hr/>
 有人说，是安装错误导致的，emmm观察了一下，发现我这里缺了
 
 <p><code>pip-inscript.py</code> 文件，执行了</p>
-<pre class=" language-powershell"><code class="language-powershell">easy_install pip</code></pre>
+<pre class=" language-powershell"><code class="language-powershell">easy_install pip
+</code></pre>
 <p>会安装如下东西</p>
 <pre class=" language-powershell"><code class="language-powershell">Searching <span class="token keyword">for</span> pip
 Best match: pip 19<span class="token punctuation">.</span>3<span class="token punctuation">.</span>1
@@ -493,7 +478,8 @@ Installing pip3<span class="token punctuation">.</span>exe script to c:\program 
 Installing pip3<span class="token punctuation">.</span>exe<span class="token punctuation">.</span>manifest script to c:\program files <span class="token punctuation">(</span>x86<span class="token punctuation">)</span>\python37<span class="token operator">-</span>32\Scripts
 Installing pip3<span class="token punctuation">.</span>7<span class="token operator">-</span>script<span class="token punctuation">.</span>py script to c:\program files <span class="token punctuation">(</span>x86<span class="token punctuation">)</span>\python37<span class="token operator">-</span>32\Scripts
 Installing pip3<span class="token punctuation">.</span>7<span class="token punctuation">.</span>exe script to c:\program files <span class="token punctuation">(</span>x86<span class="token punctuation">)</span>\python37<span class="token operator">-</span>32\Scripts
-Installing pip3<span class="token punctuation">.</span>7<span class="token punctuation">.</span>exe<span class="token punctuation">.</span>manifest script to c:\program files <span class="token punctuation">(</span>x86<span class="token punctuation">)</span>\python37<span class="token operator">-</span>32\Scripts</code></pre>
+Installing pip3<span class="token punctuation">.</span>7<span class="token punctuation">.</span>exe<span class="token punctuation">.</span>manifest script to c:\program files <span class="token punctuation">(</span>x86<span class="token punctuation">)</span>\python37<span class="token operator">-</span>32\Scripts
+</code></pre>
 <p>确实可以使用 <code>pip</code> 命令了，emmm其它的后果有待探究。</p>
 
             </div>
@@ -796,7 +782,7 @@ Installing pip3<span class="token punctuation">.</span>7<span class="token punct
                     <div class="summary block-with-text">
                         
                             搜狗输入法自我感觉非常好用，但是总是会在开机的时候随机出现乱码，目前找到两个解决该问题的方法。
-1、删除搜狗拼音的配置文件，然后重新登录命令 cd ~/.configrm -rf SogouPY* sogou*或者rm -rf ~/.con
+1、删除搜狗拼音的配置文件，然后重新登录命令 cd ~/.config rm -rf SogouPY* sogou* 或者rm -rf ~/.c
                         
                     </div>
                     <div class="publish-info">

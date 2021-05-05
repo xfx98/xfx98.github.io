@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="Linux下搜狗拼音出现候选词乱码问题, xfx&#39;s blog">
     <meta name="description" content="搜狗输入法自我感觉非常好用，但是总是会在开机的时候随机出现乱码，目前找到两个解决该问题的方法。
-1、删除搜狗拼音的配置文件，然后重新登录命令 cd ~/.configrm -rf SogouPY* sogou*或者rm -rf ~/.con">
+1、删除搜狗拼音的配置文件，然后重新登录命令 cd ~/.config rm -rf SogouPY* sogou* 或者rm -rf ~/.c">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -33,24 +33,7 @@
 <meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="xfx's blog" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
-
 <body>
-<!-- 百度自动推送 -->
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
 <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
@@ -439,7 +422,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        107
+                        108
                     </div>
                     
 
@@ -463,13 +446,13 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>搜狗输入法自我感觉非常好用，但是总是会在开机的时候随机出现乱码，目前找到两个解决该问题的方法。</p>
-<h2 id="1、删除搜狗拼音的配置文件，然后重新登录"><a href="#1、删除搜狗拼音的配置文件，然后重新登录" class="headerlink" title="1、删除搜狗拼音的配置文件，然后重新登录"></a>1、删除搜狗拼音的配置文件，然后重新登录</h2><p>命令<br> <code>cd ~/.config</code><br><code>rm -rf SogouPY* sogou*</code><br>或者<br><code>rm -rf ~/.config/SogouPY ~/.config/sogou*</code></p>
+<h2 id="1、删除搜狗拼音的配置文件，然后重新登录"><a href="#1、删除搜狗拼音的配置文件，然后重新登录" class="headerlink" title="1、删除搜狗拼音的配置文件，然后重新登录"></a>1、删除搜狗拼音的配置文件，然后重新登录</h2><p>命令<br> <code>cd ~/.config </code><br><code>rm -rf SogouPY* sogou* </code><br>或者<br><code>rm -rf ~/.config/SogouPY ~/.config/sogou*</code></p>
 <h2 id="2、重启fcitx"><a href="#2、重启fcitx" class="headerlink" title="2、重启fcitx"></a>2、重启fcitx</h2><p>命令</p>
 <ol>
 <li><p>找到fcitx的进程</p>
-<p> <code>pidof fcitx</code></p>
+<p> <code>pidof fcitx </code></p>
 </li>
-<li><p>关闭进程:pid是查到的进程号<br><code>kill pid</code></p>
+<li><p>关闭进程:pid是查到的进程号<br><code>kill pid </code></p>
 </li>
 <li><p>重启fcitx<br><code>fcitx</code></p>
 </li>

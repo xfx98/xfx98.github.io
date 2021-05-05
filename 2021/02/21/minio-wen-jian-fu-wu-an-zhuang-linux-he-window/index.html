@@ -35,24 +35,7 @@ wget https://dl.minio.io/server/minio/release/linux-amd64">
 <meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="xfx's blog" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
-
 <body>
-<!-- 百度自动推送 -->
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
 <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
@@ -471,29 +454,36 @@ wget https://dl.minio.io/server/minio/release/linux-amd64">
                 <p>项目地址<a target="_blank" rel="noopener" href="https://github.com/minio/minio">https://github.com/minio/minio</a></p>
 <h2 id="Linux安装"><a href="#Linux安装" class="headerlink" title="Linux安装"></a>Linux安装</h2><p>下载安装介质</p>
 <pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> /usr/local
-<span class="token function">wget</span> https://dl.minio.io/server/minio/release/linux-amd64/minio</code></pre>
+<span class="token function">wget</span> https://dl.minio.io/server/minio/release/linux-amd64/minio
+</code></pre>
 <p>安装（下文中ip指代的是Minio所在的服务器地址）</p>
 <pre class=" language-bash"><code class="language-bash"><span class="token function">chmod</span> +x minio
 <span class="token function">export</span> MINIO_ACCESS_KEY<span class="token operator">=</span>minioadmin
 <span class="token function">export</span> MINIO_SECRET_KEY<span class="token operator">=</span>minioadmin
-./minio server /minio/data</code></pre>
+./minio server /minio/data
+</code></pre>
 <blockquote>
-<p>Endpoint: <a target="_blank" rel="noopener" href="http://ip:9000">http://ip:9000</a> <a target="_blank" rel="noopener" href="http://127.0.0.1:9000">http://127.0.0.1:9000</a><br>AccessKey: minioadmin<br>SecretKey: minioadmin<br>Browser Access: <a target="_blank" rel="noopener" href="http://ip:9000">http://ip:9000</a></p>
+<p>Endpoint: <a target="_blank" rel="noopener" href="http://ip:9000/">http://ip:9000</a> <a target="_blank" rel="noopener" href="http://127.0.0.1:9000/">http://127.0.0.1:9000</a><br>AccessKey: minioadmin<br>SecretKey: minioadmin<br>Browser Access: <a target="_blank" rel="noopener" href="http://ip:9000/">http://ip:9000</a></p>
 </blockquote>
 <p>开机自启动</p>
 <p>编写脚本 minioSysInit.sh，脚本内容如下。</p>
 <pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># !/bin/bash</span>
-/usr/local/minio server /minio/data</code></pre>
+/usr/local/minio server /minio/data
+</code></pre>
 <p>更改文件权限。</p>
-<pre class=" language-bash"><code class="language-bash">  <span class="token function">chmod</span> +x /usr/local/minioSysInit.sh</code></pre>
+<pre class=" language-bash"><code class="language-bash">  <span class="token function">chmod</span> +x /usr/local/minioSysInit.sh
+</code></pre>
 <p>编辑 rc.local文件，加入脚本。</p>
 <pre class=" language-bash"><code class="language-bash">  vim /etc/rc.d/rc.local
-  /usr/local/minioSysInit.sh</code></pre>
+  /usr/local/minioSysInit.sh
+</code></pre>
 <p>更新rc.local权限</p>
-<pre class=" language-bash"><code class="language-bash">  <span class="token function">chmod</span> +x /etc/rc.d/rc.local</code></pre>
+<pre class=" language-bash"><code class="language-bash">  <span class="token function">chmod</span> +x /etc/rc.d/rc.local
+</code></pre>
 <p>  接口开放相关查看<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40827780/article/details/114258020?spm=1001.2014.3001.5501">MySQL安装的开放远程端口，关闭防火墙部分</a></p>
 <h2 id="Windows安装"><a href="#Windows安装" class="headerlink" title="Windows安装"></a>Windows安装</h2><p><a target="_blank" rel="noopener" href="https://dl.min.io/server/minio/release/windows-amd64/minio.exe">https://dl.min.io/server/minio/release/windows-amd64/minio.exe</a><br>下载就可使用下面命令前台使用，要在后台运行，就要配置成服务进行使用</p>
-<pre class=" language-sh"><code class="language-sh">./minio server ./data</code></pre>
+<pre class=" language-sh"><code class="language-sh">./minio server ./data
+</code></pre>
 <p>需要用到<code>winsw</code><br>下载：</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/winsw/winsw/releases">https://github.com/winsw/winsw/releases</a><br>将下载的<code>WinSW.NET***.exe</code>复制到自定义的目录，并重命名为自己想命名的服务名称<code>minio-server.exe</code><br>同目录下创建<code>minio-server.xml</code>。特别注意，<code>xml</code>和<code>exe</code>必须同名<br>配置<code>minio-server.xml</code>文件<br>使用<code>./minio-server.exe install</code>安装服务<br>安装完后，去服务中启动服务。启动成功就可以正常使用<code>minio</code>啦<br>使用<code>./minio-server.exe uninstall</code>卸载服务<br>当然此操作也适用于其它<code>exe</code>程序只需更改配置即可<br>配置</p>
 <pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>service</span><span class="token punctuation">></span></span>
@@ -516,7 +506,8 @@ wget https://dl.minio.io/server/minio/release/linux-amd64">
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>zipOlderThanNumDays</span><span class="token punctuation">></span></span>5<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>zipOlderThanNumDays</span><span class="token punctuation">></span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>zipDateFormat</span><span class="token punctuation">></span></span>yyyyMMdd<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>zipDateFormat</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>log</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>service</span><span class="token punctuation">></span></span></code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>service</span><span class="token punctuation">></span></span>
+</code></pre>
 
             </div>
             <hr/>
